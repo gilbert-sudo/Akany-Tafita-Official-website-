@@ -228,6 +228,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="index.php?controller=home&task=index" class="nav-link <?=\Menu::buttonState("home");?>">
+                <i class="nav-icon fas fa-home"></i>
+                <p>
+                   Accueil
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?controller=donation&task=index" class="nav-link <?=\Menu::buttonState("donation");?>">
+                <i class="nav-icon fas fa-hand-holding-usd"></i>
+                <p>
+                   Don
+                </p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
