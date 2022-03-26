@@ -1,6 +1,7 @@
 <?php
 
 namespace Controllers;
+
 class Donation extends Controller
 {
   public function index()
@@ -8,6 +9,9 @@ class Donation extends Controller
 
     \Renderer::render('donation/index');
   }
+  /*
+  function ash some donation 
+   */
   public function Ask()
   {
     if (isset($_POST['publier'])) {
@@ -33,7 +37,6 @@ class Donation extends Controller
             \Http::redirect('donation/index.html.php');
           }
         }
-
       }
     }
   }
