@@ -9,6 +9,7 @@ class Donation extends Controller
 
     \Renderer::render('donation/index');
   }
+
   /*
   function ash some donation 
    */
@@ -40,4 +41,5 @@ class Donation extends Controller
       }
     }
   }
+
 }
