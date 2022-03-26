@@ -7,6 +7,11 @@ abstract class Controller {
     protected $view;
     protected $pageTitle;
     
+
+    function __construct()
+    {
+        $this->model = new $this->modelName();
+    }
     /**
      * index the page
      *

@@ -2,13 +2,19 @@
 
 namespace models;
 
-require_once('libraries/autoload.php');
 class Donation extends Model
 {
-  public function ask(array $variable = [])
+  public function insert(array $variable = [])
   {
     extract($variable);
-    $insertAsking = $this->pdo->prepare("INSERT INTO demande_dons(id, but, font, description,images) VALUES (null, ?, ?, ?, ?)");
-    $insertAsking->execute(compact('but', 'font', 'description', 'images'));
+   $insert = $this->pdo->prepare("INSERT INTO demande_dons (but, fond, description, images, created_at) VALUES (:but, :fond, :description, :images, NOW())");
+   $insert->execute([
+     ':but' => $sujet,
+     ':fond' => $montant,
+     ':description' => $motif,
+     ':images' => $images
+   ]);
+
   }
+
 }

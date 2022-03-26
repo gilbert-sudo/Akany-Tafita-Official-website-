@@ -8,40 +8,55 @@ class Donation extends Controller
 {
   protected $pageTitle = 'Donation';
   protected $view = 'donation/index';
+  protected $table = 'demande_dons';
+  protected $modelName = \models\Donation::class;
 
-  /*
-  function ash some donation 
+  /**
+   * ask for donation
+   *
+   * @return void
    */
   public function ask()
   {
-    if (isset($_POST['publier'])) {
-      if (isset($_POST['but']) and isset($_POST['fond']) and isset($_POST['description']) and isset($_FILES['images'])) {
-
-        $but = $_POST['but'];
-        $fond = $_POST['fond'];
-        $description = $_POST['description'];
-        $img_name = $_FILES['images']['name'];
-
-        $target_tmp = $_FILES['images']['tmp_name'];
-        $img_ext = explode('.', $img_name);
-        $img_error = $_FILES['images']['error'];
-        $allowed = array('jpg', 'jpeg', 'png');
-        $imgActExt = strtolower(end($img_ext));
-        if ($img_error === 0) {
-          if (in_array($imgActExt, $allowed)) {
-            $images = uniqid('', true) . "." . $imgActExt;
-            $img_dest = 'views/images' . $images;
-            move_uploaded_file($target_tmp, $img_dest);
-            $asking = new \models\Donation();
-            $asking->Ask(array($but, $fond, $description, $images));
-            \Http::redirect('donation/index.html.php');
+    $error_msg = '';
+    if (isset($_POST['Publier'])) {
+      if (isset($_POST['sujet']) && isset($_POST['montant']) && isset($_POST['motif'])) {
+        if (!empty($_POST['sujet']) || !empty($_POST['montant']) || !empty($_POST['motif'])) {
+          $sujet = $_POST['sujet'];
+          $montant = $_POST['montant'];
+          $motif = $_POST['motif'];
+          $images = $_FILES['file']['name'];
+          $target = 'views/images/' . basename($_FILES['file']['name']);
+          $valid_file_extensions = array(".jpg", ".jpeg", ".png", ".gif");
+          $file_extension = strrchr($_FILES['file']['name'], ".");
+          if (in_array($file_extension, $valid_file_extensions)) {
+            if (move_uploaded_file($_FILES['file']['tmp_name'], $target)) {
+              $this->model->insert(compact('sujet', 'montant', 'motif', 'images'));
+              $error_msg = \Renderer::showError('Votre demande a été envoyé avec succès', 'success');
+            } else {
+              $error_msg = "Désolé, une erreur s'est produite lors du téléchargement de votre fichier.";
+            }
+          } else {
+            $error_msg = "Désolé, seuls les fichiers JPG, JPEG, PNG et GIF sont autorisés.";
           }
+        } else {
+          $error_msg = 'Veuillez remplir tous les champs';
         }
       }
     }
     $pageTitle = $this->pageTitle;
-    $error_msg = \Renderer::showError('l\'image n\'est pas au bon format', 'success');
     \Renderer::render('donation/ask', compact('pageTitle', 'error_msg'));
   }
 
+  /**
+   * show all donations
+   *
+   * @return void
+   */
+  public function index()
+  {
+    $pageTitle = $this->pageTitle;
+    $donations = $this->model->findAll();
+    \Renderer::render('donation/index', compact('pageTitle', 'donations'));
+  }
 }
