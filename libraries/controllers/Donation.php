@@ -40,7 +40,8 @@ class Donation extends Controller
       }
     }
     $pageTitle = $this->pageTitle;
-    \Renderer::render('donation/ask', compact('pageTitle'));
+    $error_msg = \Renderer::showError('l\'image n\'est pas au bon format', 'success');
+    \Renderer::render('donation/ask', compact('pageTitle', 'error_msg'));
   }
 
 }

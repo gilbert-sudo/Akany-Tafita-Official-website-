@@ -1,7 +1,5 @@
 <div class="card card-info">
-    <?php
-    \Renderer::showError('babababbababababbababababab.');
-    ?>
+    <?=$error_msg;?>
     <div class="card-header">
         <h3 class="card-title">Demande de don</h3>
     </div>

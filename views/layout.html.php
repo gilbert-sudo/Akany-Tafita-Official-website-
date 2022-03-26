@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -17,6 +16,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -197,18 +197,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-           
+
             <li class="nav-item">
-              <a href="index.php?controller=home&task=index" class="nav-link <?=\Menu::buttonState("home", 'index');?>">
+              <a href="index.php?controller=home&task=index" class="nav-link <?= \Menu::buttonState("home", 'index'); ?>">
                 <i class="nav-icon fas fa-home"></i>
                 <p>
-                   Accueil
+                  Accueil
                 </p>
               </a>
             </li>
-           
+
             <li class="nav-item menu-is-opening menu-open">
-              <a href="#" class="nav-link <?=\Menu::buttonState("donation", "index");?> <?=\Menu::buttonState("donation", "ask");?>">
+              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
                 <i class="nav-icon fas fa-hand-holding-usd"></i>
                 <p>
                   Don
@@ -217,13 +217,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=index" class="nav-link <?=\Menu::buttonState("donation", "index");?>">
+                  <a href="index.php?controller=donation&task=index" class="nav-link <?= \Menu::buttonState("donation", "index"); ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Gerer les dons</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=ask" class="nav-link <?=\Menu::buttonState("donation", "ask");?>">
+                  <a href="index.php?controller=donation&task=ask" class="nav-link <?= \Menu::buttonState("donation", "ask"); ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Demande de don</p>
                   </a>
@@ -288,6 +288,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </footer>
   </div>
   <!-- ./wrapper -->
+  
 
   <!-- REQUIRED SCRIPTS -->
 
@@ -297,6 +298,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
 </body>
 
 </html>
