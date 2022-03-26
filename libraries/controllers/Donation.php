@@ -2,18 +2,17 @@
 
 namespace Controllers;
 
+use Renderer;
+
 class Donation extends Controller
 {
-  public function index()
-  {
-
-    \Renderer::render('donation/index');
-  }
+  protected $pageTitle = 'Donation';
+  protected $view = 'donation/index';
 
   /*
   function ash some donation 
    */
-  public function Ask()
+  public function ask()
   {
     if (isset($_POST['publier'])) {
       if (isset($_POST['but']) and isset($_POST['fond']) and isset($_POST['description']) and isset($_FILES['images'])) {
@@ -40,6 +39,8 @@ class Donation extends Controller
         }
       }
     }
+    $pageTitle = $this->pageTitle;
+    \Renderer::render('donation/ask', compact('pageTitle'));
   }
 
 }
