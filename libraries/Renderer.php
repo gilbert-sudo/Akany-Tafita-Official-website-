@@ -18,6 +18,13 @@ class Renderer
         $pageContent = ob_get_clean();
         require('views/layout.html.php');
     }
+    /**
+     * To show error message
+     *
+     * @param  mixed $error_message
+     * @param  mixed $error_mode
+     * @return void
+     */
     public static function showError(string $error_message, string $error_mode)
 
     {
@@ -27,7 +34,7 @@ class Renderer
             $error_icon = 'exclamation-triangle';
         } elseif ($error_mode == 'info') {
             $error_icon = 'info';
-        }else {
+        } else {
             $error_icon = '';
         }
         $error = '<div class="alert alert-' . $error_mode . ' alert-dismissible">
@@ -45,5 +52,25 @@ class Renderer
         </script>';
         }
         return $error;
+    }
+
+       
+    /**
+     * reset the form after submit
+     *
+     * @param  mixed $inputName
+     * @param  mixed $inputType
+     * @return void
+     */
+    public static function resetValue($inputName, $inputType = 'text')
+
+    {
+        if (isset($inputName) && !empty($inputName)) {
+            if ($inputType == 'textarea') {
+                echo $inputName;
+            } else {
+                echo 'value="' . $inputName . '"';
+            }
+        }
     }
 }

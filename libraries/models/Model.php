@@ -11,7 +11,7 @@ class Model
 
    public function findAll()
    {
-     $selectAll = $this->pdo->query("SELECT * FROM $this->table");
+     $selectAll = $this->pdo->query("SELECT * FROM {$this->table}");
      return $selectAll->fetchAll();
    }
    public function findOneById($id)

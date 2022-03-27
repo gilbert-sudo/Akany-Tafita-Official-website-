@@ -8,7 +8,6 @@ class Donation extends Controller
 {
   protected $pageTitle = 'Donation';
   protected $view = 'donation/index';
-  protected $table = 'demande_dons';
   protected $modelName = \models\Donation::class;
 
   /**
@@ -19,7 +18,9 @@ class Donation extends Controller
   public function ask()
   {
     $error_msg = '';
-    if (isset($_POST['Publier'])) {
+    $sujet = '';
+    $montant = '';
+    $motif = '';
       if (isset($_POST['sujet']) && isset($_POST['montant']) && isset($_POST['motif'])) {
         if (!empty($_POST['sujet']) || !empty($_POST['montant']) || !empty($_POST['motif'])) {
           $sujet = $_POST['sujet'];
@@ -34,18 +35,17 @@ class Donation extends Controller
               $this->model->insert(compact('sujet', 'montant', 'motif', 'images'));
               $error_msg = \Renderer::showError('Votre demande a été envoyé avec succès', 'success');
             } else {
-              $error_msg = "Désolé, une erreur s'est produite lors du téléchargement de votre fichier.";
+              $error_msg = \Renderer::showError("Désolé, une erreur s'est produite lors du téléchargement de votre fichier.", 'danger');
             }
           } else {
-            $error_msg = "Désolé, seuls les fichiers JPG, JPEG, PNG et GIF sont autorisés.";
+            $error_msg = \Renderer::showError("Désolé, seuls les fichiers JPG, JPEG, PNG et GIF sont autorisés pour la photo.", 'danger');
           }
         } else {
-          $error_msg = 'Veuillez remplir tous les champs';
+          $error_msg = \Renderer::showError('Veuillez remplir tous les champs', 'danger');
         }
       }
-    }
     $pageTitle = $this->pageTitle;
-    \Renderer::render('donation/ask', compact('pageTitle', 'error_msg'));
+    \Renderer::render('donation/ask', compact('pageTitle', 'error_msg', 'sujet', 'montant', 'motif'));
   }
 
   /**

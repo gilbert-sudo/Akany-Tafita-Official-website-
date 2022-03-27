@@ -4,6 +4,8 @@ namespace models;
 
 class Donation extends Model
 {
+  protected $table = 'demande_dons';
+
   public function insert(array $variable = [])
   {
     extract($variable);

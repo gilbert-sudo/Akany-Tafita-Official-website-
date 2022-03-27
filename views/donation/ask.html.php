@@ -10,15 +10,15 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="exampleInputEmail1">Votre sujet:</label>
-                <input type="text" name="sujet" class="form-control" id="exampleInputEmail1" placeholder="Ecriver ici ..." required>
+                <input type="text" name="sujet" <?php \Renderer::resetValue($sujet) ?> class="form-control" id="exampleInputEmail1" maxlength="45" placeholder="Ecriver ici ..." required>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Le motant que vous demander:</label>
-                <input type="number" name="montant" class="form-control" id="exampleInputPassword1" placeholder="Ecriver un chiffre" required>
+                <input type="number" max="1000000000" name="montant" <?php \Renderer::resetValue($montant) ?> class="form-control" id="exampleInputPassword1" placeholder="Ecriver un chiffre" required>
             </div>
             <div class="form-group">
                 <label>Motif de la demande:</label>
-                <textarea class="form-control" name="motif" rows="3" placeholder="Ecriver ici ..." required></textarea>
+                <textarea class="form-control" maxlength="100" name="motif" rows="3" placeholder="Ecriver ici ..." required> <?php \Renderer::resetValue($motif, 'textarea') ?> </textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputFile">Ajouter une image</label>
