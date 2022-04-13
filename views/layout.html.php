@@ -60,7 +60,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </form>
           </div>
         </li>
-
+         
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
@@ -199,14 +199,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
 
             <li class="nav-item">
-              <a href="index.php?controller=home&task=index" class="nav-link <?= \Menu::buttonState("home", 'index'); ?>">
+              <a href="index.php?controller=Home&task=index" class="nav-link <?= \Menu::buttonState("Home", 'index'); ?>">
                 <i class="nav-icon fas fa-home"></i>
                 <p>
                   Accueil
                 </p>
               </a>
             </li>
-
+            <li class="nav-item">
+            <a href="#" class="nav-link   <?= \Menu::buttonState("Events", "addEvent"); ?> <?= \Menu::buttonState("Events", "index"); ?>">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Evenement
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview " style="display: block;">
+              <li class="nav-item">
+                <a href="index.php?controller=Events&task=addEvent" class="nav-link  <?= \Menu::buttonState("Events", "addEvent"); ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter un événement</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="index.php?controller=Events&task=index" class="nav-link  <?= \Menu::buttonState("Events", "index"); ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Gérer les événements</p>
+                </a>
+              </li>
+            </ul>
+          </li>
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
                 <i class="nav-icon fas fa-hand-holding-usd"></i>
@@ -217,13 +239,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=index" class="nav-link <?= \Menu::buttonState("donation", "index"); ?>">
+                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Gerer les dons</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=ask" class="nav-link <?= \Menu::buttonState("donation", "ask"); ?>">
+                  <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Demande de don</p>
                   </a>

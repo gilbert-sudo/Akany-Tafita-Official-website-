@@ -8,7 +8,7 @@ abstract class Controller {
     protected $pageTitle;
     
 
-    function __construct()
+   public  function __construct()
     {
         $this->model = new $this->modelName();
     }

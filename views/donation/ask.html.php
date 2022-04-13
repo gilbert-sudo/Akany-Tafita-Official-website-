@@ -1,10 +1,13 @@
-<div class="card card-info">
+<div class="card card-info">  
+
     <?=$error_msg;?>
+ 
     <div class="card-header">
         <h3 class="card-title">Demande de don</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
+    
 
     <form method="POST" enctype="multipart/form-data" action="#">
         <div class="card-body">
