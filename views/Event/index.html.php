@@ -1,4 +1,3 @@
-
 <div class="card-body">
     <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
         <div class="row">
@@ -7,7 +6,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <table style = "text-align:center;" id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
+                <table style="text-align:center;" id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
                     <thead>
                         <tr>
                             <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Titre</th>
@@ -18,17 +17,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                            foreach($events as $event){
+                        <?php
+                        foreach ($events as $event) {
                         ?>
-                        <tr class="odd">
-                            <td class="dtr-control sorting_1" tabindex="0"><?=$event['title_event'];?></td>
-                            <td><?=$event['time_event'];?><br><?=$event['date_event'];?></td>
-                            <td style=""><?=$event['description_event'];?></td>
-                            <td style="padding:4px"><img src="views/images/<?php echo$event['image'];?>" width="120px" height="86px"></td>
-                            <td style=""></td>
-                        </tr>
-                        <?php 
+                            <tr class="odd">
+                                <td class="dtr-control sorting_1" tabindex="0"><?= $event['title_event']; ?></td>
+                                <td><?= $event['time_event']; ?><br><?= $event['date_event']; ?></td>
+                                <td style=""><?= $event['description_event']; ?></td>
+                                <td style="padding:4px"><img src="views/images/<?php echo $event['image']; ?>" width="120px" height="86px"></td>
+                                <td style = "padding:38px">
+                                  <button style ="width:26px;height:26px; border-raduis:1px;background-color:darkred;border:none; color:white"><a href="index.php?controller=Events&task=suppress&id=<?=$event['id'];?>">X</a></button>
+                                  &nbsp;&nbsp;  <button style = "background-color:royalblue;border:none;width:26px;height:26px"><i class="fa fa-edit" ></i></button> 
+                                </td>
+                            </tr>
+                        <?php
                         }
                         ?>
                     </tbody>
