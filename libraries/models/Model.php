@@ -29,4 +29,5 @@ class Model
     $delete->execute([$id]);
     
   }
+
 }
