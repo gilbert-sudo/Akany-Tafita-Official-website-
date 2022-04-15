@@ -7,7 +7,7 @@ class Events extends Controller
   protected $modelName = \models\Events::class;
   protected $view = 'Event/addEvent';
   protected $pageTitle = 'Evènement';
-  public function addData(string $sqlRequest,$id)
+  public function addData(string $sqlRequest, int $id)
   {
 
     $varData = [];
@@ -20,7 +20,6 @@ class Events extends Controller
         $img = $_FILES['image']['name'];
         $img_ext = explode('.', $img);
         $imgActualExt = strtolower(end($img_ext));
-        $id = $id;   
          $img_name = uniqid(' ', true) . '.' . $imgActualExt;
         if ($img != ' ') {
           $valid_file_ext = array("jpg", "jpeg", "png", "gif");
@@ -28,7 +27,7 @@ class Events extends Controller
         
             $path_target = 'views/images/' . $img_name;
             if (move_uploaded_file($_FILES['image']['tmp_name'], $path_target)) {
-              $this->model->$sqlRequest(compact('title_event', 'date_event', 'time_event', 'description_event', 'img_name','id'));
+              $this->model->$sqlRequest([$title_event, $date_event, $time_event, $description_event, $img_name, $id]);
               $error_msg = \renderer::showError('votre événement a été bien ajouté', 'success');
             } else {
               $error_msg = \Renderer::showError("Désolé, une erreur s'est produite lors du téléchargement de votre fichier.", 'danger');
@@ -70,18 +69,23 @@ class Events extends Controller
   }
   public function update()
   {
-    
+    $sign ="not Ok";
     $error_msg = ' ';
     if (isset($_POST['update_event'])) {
       if (isset($_GET['id']) && !empty($_GET['id'])) {
         $id = $_GET['id'];
         $varData =  $this->addData('update', $id);
-        extract($varData);   
+        extract($varData);
+     $sign =" ok";
       }
+     
     }
-    $events = $this->model->findAll();
-   \renderer::render('Event/index', ['pageTitle' => $this->Title, 'error_msg' => $error_msg, 'events' => $events]);
-  }
+    echo$sign;
+     $events =   $this->model->findAll();
+      \Renderer::render('Event/index', ['pageTitle' => $this->pageTitle, 'error_msg' => $error_msg,  'events' => $events]);
+    }
+  
+
   public function index()
   {
     $error_msg = " ";

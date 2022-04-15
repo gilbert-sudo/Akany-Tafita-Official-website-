@@ -14,15 +14,15 @@
        ':image' => $img_name
      ]);
     }
-    public function update(array $newValEvent = []): void{
-      extract($newValEvent);
+    public function update(array $variable = []): void{
+      extract($variable);
       $update = $this->pdo->prepare("UPDATE {$this->table} SET title_event = :title_event, date_event = :date_event, time_event = :time_event, description_event = :description_event, image = :image WHERE id = :id");
       $update->execute([
         ':title_event' => $title_event,
         ':date_event' => $date_event,
         ':time_event' => $time_event,
         ':description_event' => $description_event,
-        ':image' => $image,
+        ':image' => $img_name,
         ':id' => $id
       ]);
   

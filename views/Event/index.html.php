@@ -41,7 +41,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form>
+                                                    <form method="POST" enctype="multipart/form-Data" action="index.php?controller=Events&task=update&id=<?=$event['id'];?>">
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="col-form-label">Titre</label>
                                                             <input type="text" class="form-control" id="recipient-name" value  ="<?=$event['title_event'];?>">
@@ -74,7 +74,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                    <a href="index.php?controller=Events&task=update&id='<?=$event['id'];?>'"><button type="submit" name="update_event" class="btn btn-primary">OK</button></a>
+                                                    <button type="submit" name="update_event" class="btn btn-primary">OK</button>
                                                 </div>
                                                 </form>
 
