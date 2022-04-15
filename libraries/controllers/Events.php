@@ -20,11 +20,12 @@ class Events extends Controller
         $img = $_FILES['image']['name'];
         $img_ext = explode('.', $img);
         $imgActualExt = strtolower(end($img_ext));
-        $id = $id;
+        $id = $id;   
+         $img_name = uniqid(' ', true) . '.' . $imgActualExt;
         if ($img != ' ') {
           $valid_file_ext = array("jpg", "jpeg", "png", "gif");
                if (in_array($imgActualExt, $valid_file_ext)) {
-            $img_name = uniqid(' ', true) . '.' . $imgActualExt;
+        
             $path_target = 'views/images/' . $img_name;
             if (move_uploaded_file($_FILES['image']['tmp_name'], $path_target)) {
               $this->model->$sqlRequest(compact('title_event', 'date_event', 'time_event', 'description_event', 'img_name','id'));
@@ -34,6 +35,7 @@ class Events extends Controller
             }
           } else {
             $error_msg = \Renderer::showError("Désolé, seuls les fichiers JPG, JPEG, PNG et GIF sont autorisés pour la photo.", 'danger');
+              
           }
         }
       } else {
