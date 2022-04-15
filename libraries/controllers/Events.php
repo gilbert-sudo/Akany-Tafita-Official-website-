@@ -7,7 +7,7 @@ class Events extends Controller
   protected $modelName = \models\Events::class;
   protected $view = 'Event/addEvent';
   protected $pageTitle = 'Evènement';
-  public function addData(string $sqlRequest)
+  public function addData(string $sqlRequest,$id)
   {
 
     $varData = [];
@@ -18,11 +18,13 @@ class Events extends Controller
         $time_event = $_POST['time_event'];
         $description_event = $_POST['description_event'];
         $img = $_FILES['image']['name'];
+        $img_ext = explode('.', $img);
+        $imgActualExt = strtolower(end($img_ext));
+        $id = $id;
         if ($img != ' ') {
-          $valid_file_ext = array(".jpg", ".jpeg", ".png", ".gif");
-          $img_ext = strrchr($img, ".");
-          if (in_array($img_ext, $valid_file_ext)) {
-            $img_name = uniqid(' ', true) . '.' . $img_ext;
+          $valid_file_ext = array("jpg", "jpeg", "png", "gif");
+               if (in_array($imgActualExt, $valid_file_ext)) {
+            $img_name = uniqid(' ', true) . '.' . $imgActualExt;
             $path_target = 'views/images/' . $img_name;
             if (move_uploaded_file($_FILES['image']['tmp_name'], $path_target)) {
               $this->model->$sqlRequest(compact('title_event', 'date_event', 'time_event', 'description_event', 'img_name','id'));
@@ -51,18 +53,18 @@ class Events extends Controller
 
   public function addEvent()
   {
-    $id = null;
+   
     $error_msg = ' ';
     $title_event = " ";
     $date_event = " ";
     $time_event = " ";
     $description_event = " ";
     if (isset($_POST['add_event'])) {
-      $varData = $this->addData('insert');
+      $varData = $this->addData('insert', ' ');
       extract($varData);
     }
     $pageTitle = $this->pageTitle;
-    \Renderer::render($this->view, compact('pageTitle', 'error_msg', 'title_event', 'date_event', 'time_event', 'description_event','id'));
+    \Renderer::render($this->view, compact('pageTitle', 'error_msg', 'title_event', 'date_event', 'time_event', 'description_event'));
   }
   public function update()
   {
@@ -71,12 +73,12 @@ class Events extends Controller
     if (isset($_POST['update_event'])) {
       if (isset($_GET['id']) && !empty($_GET['id'])) {
         $id = $_GET['id'];
-        $varData =  $this->addData('update');
-        extract($varData);
+        $varData =  $this->addData('update', $id);
+        extract($varData);   
       }
     }
     $events = $this->model->findAll();
-    \renderer::render('Event/index', ['pageTitle' => $this->Title, 'error_msg' => $error_msg, 'events' => $events]);
+   \renderer::render('Event/index', ['pageTitle' => $this->Title, 'error_msg' => $error_msg, 'events' => $events]);
   }
   public function index()
   {

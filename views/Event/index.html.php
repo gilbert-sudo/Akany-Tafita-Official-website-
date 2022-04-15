@@ -74,7 +74,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                    <a href="index.php?controller=Events&task=update&id=<?=$event['id'];?>"><button type="submit" name="update_event" class="btn btn-primary">OK</button></a>
+                                                    <a href="index.php?controller=Events&task=update&id='<?=$event['id'];?>'"><button type="submit" name="update_event" class="btn btn-primary">OK</button></a>
                                                 </div>
                                                 </form>
 
