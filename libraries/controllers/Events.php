@@ -7,13 +7,12 @@ class Events extends Controller
   protected $modelName = \models\Events::class;
   protected $view = 'Event/addEvent';
   protected $pageTitle = 'Evènement';
-  public function addData(string $sqlRequest, int $id)
+  public function addData(string $sqlRequest,  $id)
   {
-
     $varData = [];
     if (isset($_POST['title_event']) && isset($_POST['date_event']) && isset($_POST['time_event']) && isset($_POST['description_event'])) {
-      if (!empty($_POST['title_event']) && !empty($_POST['date_event']) && !empty($_POST['time_event']) && !empty($_POST['description_event']) && !empty($_FILES['image']['name'])) {
-        $title_event = $_POST['title_event'];
+     if (!empty($_POST['title_event']) && !empty($_POST['date_event']) && !empty($_POST['time_event']) && !empty($_POST['description_event']) && !empty($_FILES['image']['name'])) {
+        $title_event = $_POST['title_event'];  
         $date_event = $_POST['date_event'];
         $time_event = $_POST['time_event'];
         $description_event = $_POST['description_event'];
@@ -27,7 +26,7 @@ class Events extends Controller
         
             $path_target = 'views/images/' . $img_name;
             if (move_uploaded_file($_FILES['image']['tmp_name'], $path_target)) {
-              $this->model->$sqlRequest([$title_event, $date_event, $time_event, $description_event, $img_name, $id]);
+              $this->model->$sqlRequest(compact('title_event', 'date_event', 'time_event', 'description_event', 'img_name', 'id'));
               $error_msg = \renderer::showError('votre événement a été bien ajouté', 'success');
             } else {
               $error_msg = \Renderer::showError("Désolé, une erreur s'est produite lors du téléchargement de votre fichier.", 'danger');
@@ -48,6 +47,7 @@ class Events extends Controller
         'img_name' => $img_name,
         'error_msg' => $error_msg
       ];
+      echo "this is content of varData".var_dump($varData);
     }
     return $varData;
   }
@@ -69,26 +69,30 @@ class Events extends Controller
   }
   public function update()
   {
-    $sign ="not Ok";
     $error_msg = ' ';
     if (isset($_POST['update_event'])) {
       if (isset($_GET['id']) && !empty($_GET['id'])) {
         $id = $_GET['id'];
         $varData =  $this->addData('update', $id);
-        extract($varData);
-     $sign =" ok";
-      }
-     
+      var_dump( extract($varData));
+
+     echo $sign =" ok";  
     }
-    echo$sign;
-     $events =   $this->model->findAll();
-      \Renderer::render('Event/index', ['pageTitle' => $this->pageTitle, 'error_msg' => $error_msg,  'events' => $events]);
-    }
-  
+   
+    } 
+    $events = $this->model->findAll();
+    $pageTitle = $this->pageTitle;
+    \Renderer::render('Event/index', compact('pageTitle', 'events','error_msg'));
+  }
 
   public function index()
   {
-    $error_msg = " ";
+    if(isset($_GET['err_msg']) and !empty($_GET['err_msg'])){
+      $error_msg = $_GET['err_msg'];}
+      else{
+        $error_msg = ' ';
+      }
+    
     $events =   $this->model->findAll();
     \Renderer::render('Event/index', ['pageTitle' => $this->pageTitle, 'error_msg' => $error_msg,  'events' => $events]);
   }
