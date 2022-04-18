@@ -14,6 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -330,7 +331,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <!-- Initialize Bootstrap functionality -->
-<script>
+<script >
 // Initialize tooltip component
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
@@ -341,6 +342,7 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
 </script>
+<script src="./views/javascript/event.js"></script>
 </body>
 
 </html>
