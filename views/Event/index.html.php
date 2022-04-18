@@ -30,58 +30,6 @@
                                     <a href="index.php?controller=Events&task=suppress&id=<?= $event['id']; ?>"><button style="width:26px;height:26px; border-raduis:1px;background-color:darkred;border:none; color:white">X</button></a>
                                     &nbsp;&nbsp;<button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color:royalblue;border:none;width:26px;height:26px"><i class="fa fa-edit"></i></button>
 
-
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header" style="background-color:#007bff;border-color:#007bff">
-                                                    <h5 style="color:white" class="modal-title" id="exampleModalLabel">Editer cette partie du tableau</h5>
-                                                    <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form method="POST" enctype="multipart/form-Data" action="#">
-                                                        <div class="form-group">
-                                                            <label for="recipient-name" class="col-form-label">Titre</label>
-                                                            <input type="text" class="form-control" id="recipient-name" value="<?= $event['title_event']; ?>">
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <div class="form-group">
-                                                                    <label for="recipient-name" class="col-form-label">Date</label>
-                                                                    <input type="date" name="date_event" class="form-control" id="recipient-name" value="<?= $event['date_event']; ?>">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <div class="form-group">
-                                                                    <label for="recipient-name" class="col-form-label">Heure</label>
-                                                                    <input type="time" name="time_event" class="form-control" id="recipient-name" value="<?= $event['time_event']; ?>">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="form-group">
-                                                                    <label for="recipient-name" class="col-form-label">Image</label>
-                                                                    <input type="file" name="image" class="form-control" id="recipient-name">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="message-text" class="col-form-label">description </label>
-                                                            <textarea class="form-control" name="description_event" rows="1" id="message-text"><?= $event['description_event']; ?></textarea>
-                                                        </div>
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                    <a href=" index.php?controller=Events&task=update&id=<?= $event['id']; ?>"><button type="submit" name="update_event" class="btn btn-primary">OK</button></a>
-                                                </div>
-                                                </form>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
             </div>
             </td>
             </tr>
