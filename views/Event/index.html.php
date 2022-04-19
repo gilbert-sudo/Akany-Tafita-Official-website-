@@ -28,10 +28,10 @@
                             <td id="<?='date_row'.$i;?>"><?=$event['date_event'];?></td>
                             <td id="<?='time_row'.$i;?>"><?=$event['time_event'];?></td>
                             <td id="<?='desc_row'.$i;?>"><?=$event['description_event'];?></td>
-                             <td id="<?='img'.$i;?>"><img src="./views/images/<?=$event['image'];?>" width="100px" heigth="100px"> </td>
+                             <td id="<?='img'.$i;?>"><img src="./views/images/<?=$event['image'];?>" id="<?='img'.$i;?>" width="100px" heigth="100px"> </td>
                             <td>
                                 <input type="button" id="<?='edit_button'.$i;?>" value="Edit" class="edit" onclick="edit_row(<?=$i;?>);">
-                                <input type="button" id="<?='save_button1'.$i;?>" value="Save" class="save" onclick="save_row(<?=$i;?>i);">
+                                <input type="button" id="<?='save_button1'.$i;?>" value="Save" class="save" onclick="save_row(<?=$i;?>);">
                                 <input type="button" value="Delete" class="delete" onclick="delete_row(<?=$i;?>);">
                             </td>
                         </tr>
