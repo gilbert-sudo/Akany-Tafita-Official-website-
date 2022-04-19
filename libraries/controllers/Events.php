@@ -47,7 +47,7 @@ class Events extends Controller
         'img_name' => $img_name,
         'error_msg' => $error_msg
       ];
-      echo "this is content of varData".var_dump($varData);
+
     }
     return $varData;
   }
