@@ -12,39 +12,36 @@
                         <tr>
                             <th>Titre</th>
                             <th>Date</th>
-                            <th>Time</th>
+                            <th>Heure</th>
                             <th>Description</th>
                             <th>Image</th>
-                            <th>Actions</th>
+                            <th>Action</th>
                         </tr>
-   <?php
-     $i=0;
-     foreach($events as $event){
-     $i++;
-    
-     ?>
-                        <tr id="<?='row'.$i;?>">
-                            <td id="<?='title_row'.$i;?>"><?=$event['title_event'];?></td>
-                            <td id="<?='date_row'.$i;?>"><?=$event['date_event'];?></td>
-                            <td id="<?='time_row'.$i;?>"><?=$event['time_event'];?></td>
-                            <td id="<?='desc_row'.$i;?>"><?=$event['description_event'];?></td>
-                             <td id="<?='img'.$i;?>"><img src="./views/images/<?=$event['image'];?>" id="<?='img'.$i;?>" width="100px" heigth="100px"> </td>
+
+                        <tr id="row1">
+                            <td id="title_row1">boom</td>
+                            <td id="date_row1">10/02/2020</td>
+                            <td id="time_row1">20:45</td>
+                            <td id="desc_row1">blababla</td>
+                            <td id="img_row1"><img id="event_img1" src=".\views\images\ 625ab8aae8f546.09009426.png" alt="" width="100px" height="100px"></td>
                             <td>
-                                <input type="button" id="<?='edit_button'.$i;?>" value="Edit" class="edit" onclick="edit_row(<?=$i;?>);">
-                                <input type="button" id="<?='save_button1'.$i;?>" value="Save" class="save" onclick="save_row(<?=$i;?>);">
-                                <input type="button" value="Delete" class="delete" onclick="delete_row(<?=$i;?>);">
+                                <input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
+                                <input type="button" id="save_button1" value="Save" class="save" style="display:none;" onclick="save_row('1')">
+                                <input type="button" value="Delete" class="delete" onclick="delete_row('1')">
                             </td>
                         </tr>
-                        <?php
-                        }
-                        ?>
 
                         <tr>
                             <td><input type="text" id="new_title"></td>
                             <td><input type="date" id="new_date"></td>
                             <td><input type="time" id="new_time"></td>
                             <td><input type="text" id="new_desc"></td>
-                            <td><input type="file" id="new_file"></td>
+                            <td>
+                            <img id="blah" style="display:none;" src="" alt="your image" width="100px" height="100px" />
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><input type="file" class="img"  id="imgInp" onchange="showPreview(event);"></span>
+                                </div>
+                            </td>
                             <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
                         </tr>
 
