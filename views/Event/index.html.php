@@ -30,7 +30,7 @@
                                 <input type="button" value="Delete" class="delete" onclick="delete_row('1')">
                             </td>
                         </tr>
-
+                        <br>
                         <tr>
                             <td><input type="text" id="new_title"></td>
                             <td><input type="date" id="new_date"></td>
