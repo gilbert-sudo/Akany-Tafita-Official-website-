@@ -51,7 +51,7 @@ function add_row()
  var table=document.getElementById("data_table");
  var table_len=(table.rows.length)-1;
  var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='title_row"+table_len+"'>"+newTitle+"</td><td id='date_row"+table_len+"'>"+newDate+"</td><td id='time_row"+table_len+"'>"+newTime+"</td><td id='desc_row"+table_len+"'>"+newDesc+"</td><td id='img_row"+table_len+"'><img src='"+newImgSrc+"' id='event_img"+table_len+"' width='100px' height='100px'></td><td ><input type='button' id='edit_button"+table_len+"' value='Edit' class='edit' onclick='edit_row("+table_len+")'><input type='button' id='save_button"+table_len+"'  value='Save' class='save' style='display:none;' onclick='save_row("+table_len+")'><input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
-newTitle = " " ;
+document.getElementById("new_title").value= " ";
 newDate =" " ;
 newTime = " ";
 newDesc = " ";
