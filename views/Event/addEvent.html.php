@@ -28,7 +28,11 @@
             <div class="col order-first">
               <div class="form-group" style="border-color:white">
                 <label>Image</label>
-                <input type="file" class="form-control float-right" style='border:none' id="reservationtime" required name='image'>
+                <img id="blah" style="display:none;" src="" alt="your image" width="200px" height="200px" />
+                <div>
+                  <span class="btn btn-file btn-success"><span id="selectImg" class="fileupload-new">Select image</span><input type="file" name='image' class="img" id="blah" required onchange="showPreview(event);"></span>
+                </div>
+
               </div>
             </div>
           </div>

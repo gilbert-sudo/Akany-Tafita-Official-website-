@@ -63,5 +63,7 @@ newImgSrc = " #";
       var preview = document.getElementById("blah");
       preview.src = src;
       preview.style.display = "block";
+      var change = document.getElementById('selectImg');
+      change.innerHTML = "Change";
     }
   }
