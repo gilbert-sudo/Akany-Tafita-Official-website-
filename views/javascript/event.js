@@ -18,6 +18,7 @@ function edit_row(no)
  descRow.innerHTML="<input type='text' id='edit_desc"+no+"' value='"+desc+"'>";
  imgRow.innerHTML = "<img id='blah' style='display:block;' src='"+src+"'  width='100px' height='100px' /><div><span class='btn btn-file btn-success'><span class='fileupload-new'>Select image</span><input type='file' class='img'  id='imgInp' onchange='showPreview(event);'></span></div>"
  console.log('you can edit it');
+
 }
 
 function save_row(no)
@@ -46,9 +47,10 @@ function add_row()
  var newTitle=document.getElementById("new_title").value;
  var newDate=document.getElementById("new_date").value;
  var newTime=document.getElementById("new_time").value;
- var newDesc=document.getElementById("new_desc").value;
- var newImgSrc= document.getElementById('blah').src;
- var table=document.getElementById("data_table");
+ var newDesc=$("#new_desc").val();
+ var newImgSrc= $('#blah').src;
+ 
+ var table=$("#data_table");
  var table_len=(table.rows.length)-1;
  var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='title_row"+table_len+"'>"+newTitle+"</td><td id='date_row"+table_len+"'>"+newDate+"</td><td id='time_row"+table_len+"'>"+newTime+"</td><td id='desc_row"+table_len+"'>"+newDesc+"</td><td id='img_row"+table_len+"'><img src='"+newImgSrc+"' id='event_img"+table_len+"' width='100px' height='100px'></td><td ><input type='button' id='edit_button"+table_len+"' value='Edit' class='edit' onclick='edit_row("+table_len+")'><input type='button' id='save_button"+table_len+"'  value='Save' class='save' style='display:none;' onclick='save_row("+table_len+")'><input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
 document.getElementById("new_title").value= " ";
@@ -56,14 +58,29 @@ newDate =" " ;
 newTime = " ";
 newDesc = " ";
 newImgSrc = " #";
-}                                                        
+console.log('you can add boierize it');
+var filename = newImgSrc.substring(newImgSrc.lastIndexOf('/')+1);
+console.log(filename);
+if( newTitle=="" || newDate=="" || newTime=="" || newDesc=="" || newImgSrc=="#")
+{
+ alert("Please fill all fields");
+ return false;
+}  
+$.ajax({type: "POST",
+            url: "index.php?controller=event&task=addEvent",
+            data: {title: newTitle, date: newDate, time: newTime, desc: newDesc, img: newImgSrc}})
+}                                                      
  function showPreview(event){
     if(event.target.files.length > 0){
-      var src = URL.createObjectURL(event.target.files[0]);
+       
+        var file = event.target.files[0];
+     var fileName =file.name;
+      var src = URL.createObjectURL(file);
       var preview = document.getElementById("blah");
       preview.src = src;
       preview.style.display = "block";
       var change = document.getElementById('selectImg');
-      change.innerHTML = "Change";
+      change.innerHTML = "file";
+     
     }
   }

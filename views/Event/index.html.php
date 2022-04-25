@@ -17,25 +17,26 @@
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
-     <?php
-     $i = 1;
-        foreach($events as $event)
-        { $i++;
-     ?>
-                        <tr id="<?='row'.$i;?>">
-                            <td id="<?='title_row'.$i;?>"><?=$event['title_event'];?></td>
-                            <td id="<?='date_row'.$i;?>"><?=$event['date_event'];?></td>
-                            <td id="<?='time_row'.$i;?>"><?=$event['time_event'];?></td>
-                            <td id="<?='desc_row'.$i;?>"><?=$event['description_event'];?></td>
-                            <td id="img_row<?=$i;?>"><img id="<?='event_img'.$i;?>" src="./views/images/<?=$event['image'];?>" alt="" width="100px" height="100px"></td>
-                            <td>
-                                <input type="button" id="<?='edit_button'.$i;?>" value="Edit" class="edit" onclick="edit_row('<?=$i;?>')">
-                                <input type="button" id="<?='save_button'.$i;?>" value="Save" class="save" style="display:none;" onclick="save_row('<?=$i;?>')">
-                                <input type="button" value="Delete" class="delete" onclick="delete_row('<?=$i;?>')">
-                            </td>
-                        </tr>
-        <?php
-        }?>
+                        <?php
+                        $i = 0;
+                        foreach ($events as $event) {
+                            $i++;
+
+                        ?>
+                            <tr id="<?= 'row' . $i; ?>">
+                                <td id="<?= 'title_row' . $i; ?>"><?= $event['title_event']; ?></td>
+                                <td id="<?= 'date_row' . $i; ?>"><?= $event['date_event']; ?></td>
+                                <td id="<?= 'time_row' . $i; ?>"><?= $event['time_event']; ?></td>
+                                <td id="<?= 'desc_row' . $i; ?>"><?= $event['description_event']; ?></td>
+                                <td id="img_row<?= $i; ?>"><img id="<?= 'event_img' . $i; ?>" src="./views/images/<?= $event['image']; ?>" alt="" width="100px" height="100px"></td>
+                                <td>
+                                    <input type="button" id="<?= 'edit_button' . $i; ?>" value="Edit" class="edit" onclick="edit_row('<?= $i; ?>')">
+                                    <input type="button" id="<?= 'save_button' . $i; ?>" value="Save" class="save" style="display:none;" onclick="save_row('<?= $i; ?>')">
+                                    <input type="button" value="Delete" class="delete" onclick="delete_row('<?= $i; ?>')">
+                                </td>
+                            </tr>
+                        <?php
+                        } ?>
                         <br>
                         <tr>
                             <td><input type="text" id="new_title"></td>
@@ -43,9 +44,9 @@
                             <td><input type="time" id="new_time"></td>
                             <td><input type="text" id="new_desc"></td>
                             <td>
-                            <img id="blah" style="display:none;" src="" alt="your image" width="100px" height="100px" />
+                                <img id="blah" style="display:none;" src="" alt="your image" width="100px" height="100px" />
                                 <div>
-                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><input type="file" class="img"  id="imgInp" onchange="showPreview(event);"></span>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><input type="file" class="img" id="imgInp" onchange="showPreview(event);"></span>
                                 </div>
                             </td>
                             <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
