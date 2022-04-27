@@ -1,5 +1,5 @@
 <div class="card-body">
-    <?= $error_msg; ?>
+    <p id="error_msg"> <?= $error_msg; ?></p>
     <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
         <div class="row">
             <div class="col-sm-12 col-md-6"></div>
@@ -24,6 +24,7 @@
 
                         ?>
                             <tr id="<?= 'row' . $i; ?>">
+                            <form>
                                 <td id="<?= 'title_row' . $i; ?>"><?= $event['title_event']; ?></td>
                                 <td id="<?= 'date_row' . $i; ?>"><?= $event['date_event']; ?></td>
                                 <td id="<?= 'time_row' . $i; ?>"><?= $event['time_event']; ?></td>
@@ -34,11 +35,13 @@
                                     <input type="button" id="<?= 'save_button' . $i; ?>" value="Save" class="save" style="display:none;" onclick="save_row('<?= $i; ?>')">
                                     <input type="button" value="Delete" class="delete" onclick="delete_row('<?= $i; ?>')">
                                 </td>
+                        </form>
                             </tr>
                         <?php
                         } ?>
                         <br>
                         <tr>
+                         <form enctype="multipart/form-data" method="POST">
                             <td><input type="text" id="new_title"></td>
                             <td><input type="date" id="new_date"></td>
                             <td><input type="time" id="new_time"></td>
@@ -50,6 +53,7 @@
                                 </div>
                             </td>
                             <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+                    </form>
                         </tr>
 
                     </table>

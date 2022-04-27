@@ -19,7 +19,7 @@ class Events extends Controller
         $img = $_FILES['image']['name'];
         $img_ext = explode('.', $img);
         $imgActualExt = strtolower(end($img_ext));
-         $img_name = uniqid(' ', true) . '.' . $imgActualExt;
+         $img_name = rand(1, 10000000000000) . '.' . $imgActualExt;
         if ($img != ' ') {
           $valid_file_ext = array("jpg", "jpeg", "png", "gif");
                if (in_array($imgActualExt, $valid_file_ext)) {
@@ -66,6 +66,7 @@ class Events extends Controller
     }
     $pageTitle = $this->pageTitle;
     \Renderer::render($this->view, compact('pageTitle', 'error_msg', 'title_event', 'date_event', 'time_event', 'description_event'));
+   json_encode($varData);
   }
   public function update()
   {

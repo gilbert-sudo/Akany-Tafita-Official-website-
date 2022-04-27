@@ -1,3 +1,4 @@
+
 function edit_row(no)
 {
  document.getElementById("edit_button"+no).style.display="none";
@@ -16,7 +17,7 @@ function edit_row(no)
  dateRow.innerHTML="<input type='text' id='edit_date"+no+"' value='"+date+"'>";
  timeRow.innerHTML="<input type='time' id='edit_time"+no+"' value='"+time+"'>";
  descRow.innerHTML="<input type='text' id='edit_desc"+no+"' value='"+desc+"'>";
- imgRow.innerHTML = "<img id='blah' style='display:block;' src='"+src+"'  width='100px' height='100px' /><div><span class='btn btn-file btn-success'><span class='fileupload-new'>Select image</span><input type='file' class='img'  id='imgInp' onchange='showPreview(event);'></span></div>"
+ imgRow.innerHTML = "<img id='blah' style='display:block;' src='"+src+"'  width='100px' height='100px' /><div><span class='btn btn-file btn-success'><span class='fileupload-new'>Select image</span><input type='file' class='img'  id='imgInp"+no+"' onchange='showPreview(event);'></span></div>"
  console.log('you can edit it');
 
 }
@@ -44,43 +45,57 @@ function delete_row(no)
 
 function add_row()
 {
- var newTitle=document.getElementById("new_title").value;
- var newDate=document.getElementById("new_date").value;
- var newTime=document.getElementById("new_time").value;
- var newDesc=$("#new_desc").val();
- var newImgSrc= $('#blah').src;
- 
- var table=$("#data_table");
- var table_len=(table.rows.length)-1;
- var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='title_row"+table_len+"'>"+newTitle+"</td><td id='date_row"+table_len+"'>"+newDate+"</td><td id='time_row"+table_len+"'>"+newTime+"</td><td id='desc_row"+table_len+"'>"+newDesc+"</td><td id='img_row"+table_len+"'><img src='"+newImgSrc+"' id='event_img"+table_len+"' width='100px' height='100px'></td><td ><input type='button' id='edit_button"+table_len+"' value='Edit' class='edit' onclick='edit_row("+table_len+")'><input type='button' id='save_button"+table_len+"'  value='Save' class='save' style='display:none;' onclick='save_row("+table_len+")'><input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
-document.getElementById("new_title").value= " ";
-newDate =" " ;
-newTime = " ";
-newDesc = " ";
-newImgSrc = " #";
-console.log('you can add boierize it');
-var filename = newImgSrc.substring(newImgSrc.lastIndexOf('/')+1);
-console.log(filename);
-if( newTitle=="" || newDate=="" || newTime=="" || newDesc=="" || newImgSrc=="#")
+ var newTitle=$("#new_title").val();
+var newDate=$("#new_date").val();
+var newTime=$("#new_time").val();
+var newDesc=$("#new_desc").val();
+var img = $('#imgInp');
+console.log(img);
+var property = img.prop('files')[0];
+console.log(property);
+var newImgSrc = img.attr('src');
+if( newTitle=="" || newDate=="" || newTime=="" || newDesc=="" || property.name =="" )
 {
  alert("Please fill all fields");
  return false;
 }  
-$.ajax({type: "POST",
-            url: "index.php?controller=event&task=addEvent",
-            data: {title: newTitle, date: newDate, time: newTime, desc: newDesc, img: newImgSrc}})
-}                                                      
+else{
+var fd = new FormData();
+fd.append('image', property);
+$.ajax({
+            url: "index.php?controller=events&task=addEvent", 
+            type: "POST",
+            data: {title_event: newTitle, date_event: newDate, time_event: newTime, description_event: newDesc, image:fd},
+            contentType: false,
+            processData: false,
+            cache: false,
+            dataType: "json",
+            success: function(response){
+             var dataResult =  JSON.parse(response);
+             if(dataResult.statusCode==200){
+              var table=$("#data_table");
+              var table_len=(table.rows.length)-1;
+              var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='title_row"+table_len+"'>"+dataResult.title+"</td><td id='date_row"+table_len+"'>"+dataResult.date_event+"</td><td id='time_row"+table_len+"'>"+dataResult.time_event+"</td><td id='desc_row"+table_len+"'>"+dataResult.description_event+"</td><td id='img_row"+table_len+"'><img src='./views/images/"+dataResult.img_name+"' id='event_img"+table_len+"' width='100px' height='100px'></td><td ><input type='button' id='edit_button"+table_len+"' value='Edit' class='edit' onclick='edit_row("+table_len+")'><input type='button' id='save_button"+table_len+"'  value='Save' class='save' style='display:none;' onclick='save_row("+table_len+")'><input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
+              $("#error_msg").innerHTML=dataResult.error_msg; 
+            }
+            else if(){
+              $("#error_msg").innerHTML=dataResult.error_msg;
+            
+            }
+
+          }});
+} }                                                   
  function showPreview(event){
     if(event.target.files.length > 0){
-       
-        var file = event.target.files[0];
-     var fileName =file.name;
+    
+      var file = event.target.files[0];
+      var fileName =file.name;
       var src = URL.createObjectURL(file);
-      var preview = document.getElementById("blah");
+      var preview =document.getElementById("blah");
       preview.src = src;
       preview.style.display = "block";
-      var change = document.getElementById('selectImg');
-      change.innerHTML = "file";
+      var change = $('#selectImg');
+      change.innerHTML = "change";
      
     }
   }
