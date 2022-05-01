@@ -40,6 +40,7 @@ class Events extends Controller
         $error_msg = \Renderer::showError('Veuillez remplir tous les champs', 'danger');
       }
       $varData = [
+        'success' => 1,
         'title_event' => $title_event,
         'date_event' => $date_event,
         'time_event' => $time_event,
@@ -54,7 +55,7 @@ class Events extends Controller
 
   public function addEvent()
   {
-   
+    $success = 0;
     $error_msg = ' ';
     $title_event = " ";
     $date_event = " ";
