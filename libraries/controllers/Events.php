@@ -9,6 +9,12 @@ class Events extends Controller
   protected $pageTitle = 'Evènement';
   public function addData(string $sqlRequest,  $id)
   {
+    $success = 0;
+    $error_msg = ' ';
+    $title_event = " ";
+    $date_event = " ";
+    $time_event = " ";
+    $description_event = " ";
     $varData = [];
     if (isset($_POST['title_event']) && isset($_POST['date_event']) && isset($_POST['time_event']) && isset($_POST['description_event'])) {
      if (!empty($_POST['title_event']) && !empty($_POST['date_event']) && !empty($_POST['time_event']) && !empty($_POST['description_event']) && !empty($_FILES['image']['name'])) {
@@ -50,17 +56,13 @@ class Events extends Controller
       ];
 
     }
+    json_encode($varData);
     return $varData;
   }
 
   public function addEvent()
   {
-    $success = 0;
-    $error_msg = ' ';
-    $title_event = " ";
-    $date_event = " ";
-    $time_event = " ";
-    $description_event = " ";
+  
     if (isset($_POST['add_event'])) {
       $varData = $this->addData('insert', ' ');
       extract($varData);
@@ -69,6 +71,7 @@ class Events extends Controller
     \Renderer::render($this->view, compact('pageTitle', 'error_msg', 'title_event', 'date_event', 'time_event', 'description_event'));
    json_encode($varData);
   }
+
   public function update()
   {
     $error_msg = ' ';

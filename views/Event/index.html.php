@@ -52,7 +52,7 @@
                                     <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><input type="file" class="img" id="imgInp" onchange="showPreview(event);"></span>
                                 </div>
                             </td>
-                            <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+                            <td><input type="button" class="add" onclick="add_row();" value="Add Row"><a href="index.php?controller=events&task=addEvent">add</a></td>
                     </form>
                         </tr>
 

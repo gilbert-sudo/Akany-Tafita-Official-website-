@@ -17,7 +17,7 @@ function edit_row(no)
  dateRow.innerHTML="<input type='text' id='edit_date"+no+"' value='"+date+"'>";
  timeRow.innerHTML="<input type='time' id='edit_time"+no+"' value='"+time+"'>";
  descRow.innerHTML="<input type='text' id='edit_desc"+no+"' value='"+desc+"'>";
- imgRow.innerHTML = "<img id='blah' style='display:block;' src='"+src+"'  width='100px' height='100px' /><div><span class='btn btn-file btn-success'><span class='fileupload-new'>Select image</span><input type='file' class='img'  id='imgInp"+no+"' onchange='showPreview(event);'></span></div>"
+ imgRow.innerHTML = "<img id='blah' style='display:block;' src='"+src+"'  width='100px' height='100px' /><div><span class='btn btn-file btn-success'><span class='fileupload-new'>Select image</span><input type='file' class='img'  id='blah"+no+"' onchange='showPreview(event);'></span></div>"
  console.log('you can edit it');
 
 }
@@ -42,7 +42,38 @@ function delete_row(no)
 {
  document.getElementById("row"+no+"").outerHTML="";
 }
-
+$('#insertEvent').on('click',function publish(){
+  var title=$("#event_title").val();
+  var date=$("#event_date").val();
+  var time=$("#event_time").val();
+  var desc=$("#event_desc").val();
+  var img = $('#blah');
+  var property = img.prop('files')[0];
+  console.log(property);
+  var newImgSrc = img.attr('src');
+  e.preventDefault();
+  $.ajax({
+            type: "POST",
+            url: "index.php?controller=events&task=addData&param1=insert", 
+            data: {title_event:title,date_event:date,time_event:time,description_event:desc,image:property},
+            contentType: false,
+            processData: false,
+            cache: false,
+            dataType: "json",
+            async:true,
+            success: function(response){
+              console.log(response);
+             var dataResult =  JSON.parse(response);
+             if(dataResult.success== '1'){
+              $("#error_msg").innerHTML=dataResult.error_msg;
+              console.log(dataResult);
+             }
+            else if (dataResult.success == '0'){
+              $("#error_msg").innerHTML=dataResult.error_msg;
+              console.log(dataResult);
+            }}
+  })
+})
 function add_row()
 {
  var newTitle=$("#new_title").val();
@@ -54,22 +85,17 @@ console.log(img);
 var property = img.prop('files')[0];
 console.log(property);
 var newImgSrc = img.attr('src');
-if( newTitle=="" || newDate=="" || newTime=="" || newDesc=="" || property.name =="" )
-{
- alert("Please fill all fields");
- return false;
-}  
-else{
-console.log('il ya '+this);
 $.ajax({
             url: "index.php?controller=events&task=addEvent", 
             type: "POST",
-            data: new FormData(document.getElementById("add_form")),
+            data: {title_event:newTitle,date_event:newDate,time_event:newTime,description_event:newDesc,image:property},
             contentType: false,
             processData: false,
             cache: false,
             dataType: "json",
+            async:true,
             success: function(response){
+              console.log(response);
              var dataResult =  JSON.parse(response);
              if(dataResult.success== '1'){
               var table=$("#data_table");
@@ -83,9 +109,9 @@ $.ajax({
               console.log(dataResult);
             
             }
-
-          }});
-} }                                                   
+             }
+          });
+}                                                    
  function showPreview(event){
     if(event.target.files.length > 0){
     
