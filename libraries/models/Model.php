@@ -2,10 +2,13 @@
 
 namespace models;
 
-class Model
+abstract class Model
 {
   protected $pdo;
   protected $table;
+  protected $colToUpdate;
+  protected $valToInsert;
+  protected $columns;
   public function __construct()
   {
     $this->pdo =  \Database::getPdo();
@@ -16,18 +19,28 @@ class Model
     $selectAll = $this->pdo->query("SELECT * FROM {$this->table}");
     return $selectAll->fetchAll();
   }
-  public function findOneById($id)
+  public function findOne(int $id)
   {
-    $selectOne = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+    $selectOne = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id = :id");
     $selectOne->execute(compact('id'));
     return $selectOne->fetch();
   }
-  public function delete(int $id):void
-  { 
-    
-    $delete = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = ?");
+  public function deleteOne(int $id): void
+  {
+
+    $delete = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
     $delete->execute([$id]);
-    
+  }
+  public function updateOne(int $id, array $td = []): void
+  {
+    $update = $this->pdo->prepare("UPDATE {$this->table} SET '.$this->colToUpdate.' WHERE id = $id");
+    $update->execute($td);
+  }
+  public function insertOne(array $td = [])
+  {
+    extract($td);
+    $insert = $this->pdo->prepare("INSERT INTO {$this->table}VALUES ('.$this->valToInsert.')");
+    $insert->execute($td);
   }
 
 }

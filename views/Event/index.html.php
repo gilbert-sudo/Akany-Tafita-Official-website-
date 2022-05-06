@@ -41,7 +41,7 @@
                         } ?>
                         <br>
                         <tr>
-                         <form id="add_form" enctype="multipart/form-data" method="POST">
+                         <!-- <form id="add_form" enctype="multipart/form-data" method="POST">
                             <td><input type="text" id="new_title"></td>
                             <td><input type="date" id="new_date"></td>
                             <td><input type="time" id="new_time"></td>
@@ -53,7 +53,7 @@
                                 </div>
                             </td>
                             <td><input type="button" class="add" onclick="add_row();" value="Add Row"><a href="index.php?controller=events&task=addEvent">add</a></td>
-                    </form>
+                    </form> -->
                         </tr>
 
                     </table>

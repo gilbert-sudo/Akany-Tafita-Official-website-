@@ -21,9 +21,15 @@ function edit_row(no)
  console.log('you can edit it');
 
 }
-
-function save_row(no)
+var sendRequest = async (endPoint) => {
+  const request = await fetch(endPoint);
+  const data = await request.json();
+  console.log(data);
+  return data;
+}
+function save_row(no, sendRequest)
 {
+  sendRequest("index.php?controller=events&task=update").then(data =>{ console.log(data);}).catch(err =>{console.log(err);});
  var titleNew=document.getElementById("edit_title"+no).value;
  var dateNew=document.getElementById("edit_date"+no).value;
  var timeNew=document.getElementById("edit_time"+no).value;
@@ -41,77 +47,7 @@ function save_row(no)
 function delete_row(no)
 {
  document.getElementById("row"+no+"").outerHTML="";
-}
-$('#insertEvent').on('click',function publish(){
-  var title=$("#event_title").val();
-  var date=$("#event_date").val();
-  var time=$("#event_time").val();
-  var desc=$("#event_desc").val();
-  var img = $('#blah');
-  var property = img.prop('files')[0];
-  console.log(property);
-  var newImgSrc = img.attr('src');
-  e.preventDefault();
-  $.ajax({
-            type: "POST",
-            url: "index.php?controller=events&task=addData&param1=insert", 
-            data: {title_event:title,date_event:date,time_event:time,description_event:desc,image:property},
-            contentType: false,
-            processData: false,
-            cache: false,
-            dataType: "json",
-            async:true,
-            success: function(response){
-              console.log(response);
-             var dataResult =  JSON.parse(response);
-             if(dataResult.success== '1'){
-              $("#error_msg").innerHTML=dataResult.error_msg;
-              console.log(dataResult);
-             }
-            else if (dataResult.success == '0'){
-              $("#error_msg").innerHTML=dataResult.error_msg;
-              console.log(dataResult);
-            }}
-  })
-})
-function add_row()
-{
- var newTitle=$("#new_title").val();
-var newDate=$("#new_date").val();
-var newTime=$("#new_time").val();
-var newDesc=$("#new_desc").val();
-var img = $('#imgInp');
-console.log(img);
-var property = img.prop('files')[0];
-console.log(property);
-var newImgSrc = img.attr('src');
-$.ajax({
-            url: "index.php?controller=events&task=addEvent", 
-            type: "POST",
-            data: {title_event:newTitle,date_event:newDate,time_event:newTime,description_event:newDesc,image:property},
-            contentType: false,
-            processData: false,
-            cache: false,
-            dataType: "json",
-            async:true,
-            success: function(response){
-              console.log(response);
-             var dataResult =  JSON.parse(response);
-             if(dataResult.success== '1'){
-              var table=$("#data_table");
-              var table_len=(table.rows.length)-1;
-              var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='title_row"+table_len+"'>"+dataResult.title+"</td><td id='date_row"+table_len+"'>"+dataResult.date_event+"</td><td id='time_row"+table_len+"'>"+dataResult.time_event+"</td><td id='desc_row"+table_len+"'>"+dataResult.description_event+"</td><td id='img_row"+table_len+"'><img src='./views/images/"+dataResult.img_name+"' id='event_img"+table_len+"' width='100px' height='100px'></td><td ><input type='button' id='edit_button"+table_len+"' value='Edit' class='edit' onclick='edit_row("+table_len+")'><input type='button' id='save_button"+table_len+"'  value='Save' class='save' style='display:none;' onclick='save_row("+table_len+")'><input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
-              $("#error_msg").innerHTML=dataResult.error_msg; 
-              console.log(dataResult);
-            }
-            else if(dataResult.success == '0'){
-              $("#error_msg").innerHTML=dataResult.error_msg;
-              console.log(dataResult);
-            
-            }
-             }
-          });
-}                                                    
+}                                            
  function showPreview(event){
     if(event.target.files.length > 0){
     
@@ -126,3 +62,26 @@ $.ajax({
      
     }
   }
+//   fetch()=var sendRequest = (endPoint)=>{
+//     return new Promise((resolve, reject)=>{ 
+//       const request = new XMLHttpRequest();
+//   request.addEventListener(readystatechange, ()=>{
+//     if(request.readyState === 4 && request.status === 200){
+//       const data = JSON.parse(request.responseText);
+//       console.log(data);
+//       resolve(data);
+//     }
+//     else
+//     {
+//       console.log("error");
+//       reject(Error("error"));
+//     }
+//   })
+//   request.open('GET', endPoint, true);
+//   request.send();
+// }
+//     )
+ 
+// }
+// sendRequest('http://localhost:3000/events').then(data =>{ console.log(data);}).catch(err =>{console.log(err);});
+

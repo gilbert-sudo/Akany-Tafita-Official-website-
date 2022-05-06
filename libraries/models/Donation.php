@@ -4,20 +4,8 @@ namespace models;
 class Donation extends Model
 {
   protected $table = 'demande_dons';
-
-  public function insert(array $variable = [])
-  {
-   extract($variable);
-   $insert = $this->pdo->prepare("INSERT INTO demande_dons (but, fond, description, images, created_at) VALUES (:but, :fond, :description, :images, NOW())");
-   
-   $insert->execute([
-     ':but' => $sujet,
-     ':fond' => $montant,
-     ':description' => $motif,
-     ':images' => $images
-   ]);
-
-  }
-  
+  protected $colToUpdate= "but = :but, fond = :fond, description = :description, image = :images, NOW()";
+  protected $valToInsert = " :but,  :fond,  :description,  :images,  NOW()";
+  protected $columns = "title_event, date_event, time_event, description_event, images";
 
 }
