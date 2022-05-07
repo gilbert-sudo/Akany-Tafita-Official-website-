@@ -9,10 +9,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Akany tafita sahasoa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <!-- Theme style -->
@@ -208,6 +210,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
             </li>
+
             <li class="nav-item">
             <a href="#" class="nav-link   <?= \Menu::buttonState("Events", "addEvent"); ?> <?= \Menu::buttonState("Events", "index"); ?>">
               <i class="nav-icon fas fa-table"></i>
@@ -231,6 +234,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
                 <i class="nav-icon fas fa-hand-holding-usd"></i>
@@ -241,19 +245,129 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Gerer les dons</p>
-                  </a>
-                </li>
-                <li class="nav-item">
                   <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Demande de don</p>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Gerer les dons</p>
+                  </a>
+                </li>
               </ul>
             </li>
+
+            <li class="nav-item menu-is-opening menu-open">
+              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+              <img src="./views/icons/responsable.png" width="20px" style= "background-Color:white""height="20px">
+              
+              <p>
+                Gestion des responsables
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview" style="display: block;">
+                <li class="nav-item">
+                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ajouter un  responsables</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Gérer les responsables</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item menu-is-opening menu-open">
+              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+                <i class="nav-icon fas fa-hand-holding-usd"></i>
+                <p>
+                Gestion des temoignages
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview" style="display: block;">
+                <li class="nav-item">
+                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ajouter un témoignage</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Gérer les témoignages</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item menu-is-opening menu-open">
+              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+                <i class="nav-icon fas fa-hand-holding-usd"></i>
+                <p>
+                Gestion des blogs
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview" style="display: block;">
+                <li class="nav-item">
+                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ajouter un blog</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Gérer  les blogs</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            </li>
+            
+            <li>
+            <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+                <i class="nav-icon fas fa-hand-holding-usd"></i>
+                <p>
+                 Boîte E-mail
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+            </li>
+                 
+            <li class="nav-item menu-is-opening menu-open">
+              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+                <i class="nav-icon fas fa-hand-holding-usd"></i>
+                <p>
+                Paramètre
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview" style="display: block;">
+                <li class="nav-item">
+                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Général</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mise à jour des contacts</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            </li>
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
