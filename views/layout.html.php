@@ -20,7 +20,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
- 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -222,13 +223,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="nav nav-treeview " style="display: block;">
               <li class="nav-item">
                 <a href="index.php?controller=Events&task=addEvent" class="nav-link  <?= \Menu::buttonState("Events", "addEvent"); ?>">
-                  <i class="far fa-circle nav-icon"></i>
+                <i class="fa-solid fa-calendar-plus"></i>
                   <p>Ajouter un événement</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="index.php?controller=Events&task=index" class="nav-link  <?= \Menu::buttonState("Events", "index"); ?>">
-                  <i class="far fa-circle nav-icon"></i>
+                <i class="fa-solid fa-calendar-pen"></i>
                   <p>Gérer les événements</p>
                 </a>
               </li>
@@ -237,8 +238,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-                <i class="nav-icon fas fa-hand-holding-usd"></i>
-                <p>
+              <i class="fa-solid fa-circle-dollar-to-slot"></i>
+              <p>
                   Don
                   <i class="right fas fa-angle-left"></i>
                 </p>
@@ -246,13 +247,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
+                <i class="nav-icon fas fa-hand-holding-usd"></i>
                     <p>Demande de don</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="fa-solid fa-hands-holding-dollar"></i>
                     <p>Gerer les dons</p>
                   </a>
                 </li>
@@ -261,8 +262,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-              <img src="./views/icons/responsable.png" width="20px" style= "background-Color:white""height="20px">
-              
+              <i class="fa-solid fa-users-between-lines"></i>
               <p>
                 Gestion des responsables
                   <i class="right fas fa-angle-left"></i>
@@ -271,13 +271,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="fa-solid fa-user-plus"></i>
                     <p>Ajouter un  responsables</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="fa-solid fa-hands-holding-child"></i>
                     <p>Gérer les responsables</p>
                   </a>
                 </li>
@@ -286,7 +286,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-                <i class="nav-icon fas fa-hand-holding-usd"></i>
+                <img src="./views/icons/temoignage.png" alt="" width="20px" heigth=" 20px" style="background-color:hite" class="src">
                 <p>
                 Gestion des temoignages
                   <i class="right fas fa-angle-left"></i>
@@ -310,10 +310,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-                <i class="nav-icon fas fa-hand-holding-usd"></i>
+              <i class="fa-brands fa-blogger-b"></i>
                 <p>
                 Gestion des blogs
-                  <i class="right fas fa-angle-left"></i>
+                
                 </p>
               </a>
               <ul class="nav nav-treeview" style="display: block;">
@@ -335,7 +335,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             
             <li>
             <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-                <i class="nav-icon fas fa-hand-holding-usd"></i>
+            <i class="fa-solid fa-envelope"></i>
                 <p>
                  Boîte E-mail
                   <i class="right fas fa-angle-left"></i>
@@ -345,7 +345,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                  
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-                <i class="nav-icon fas fa-hand-holding-usd"></i>
+              <i class="fa-solid fa-gear"></i>
                 <p>
                 Paramètre
                   <i class="right fas fa-angle-left"></i>
@@ -354,13 +354,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="fa-solid fa-screwdriver-wrench"></i>
                     <p>Général</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="fa-solid fa-square-pen"></i>
                     <p>Mise à jour des contacts</p>
                   </a>
                 </li>
@@ -430,7 +430,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- REQUIRED SCRIPTS -->
   
-  
+  <script src="https://unpkg.com/feather-icons"></script>
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
@@ -445,7 +445,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- Latest compiled and minified Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script src="https://kit.fontawesome.com/9979a01860.js" crossorigin="anonymous"></script>
 <!-- Initialize Bootstrap functionality -->
 <script >
 // Initialize tooltip component
@@ -459,6 +459,7 @@ $(function () {
 })
 </script>
 <script src="./views/javascript/event.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 </body>
 
 </html>
