@@ -9,19 +9,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Akany tafita sahasoa</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <style type="text/css">
+    .material-symbols-outlined {
+      font-size: 18px;
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -65,7 +68,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </form>
           </div>
         </li>
-         
+
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
@@ -205,7 +208,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <li class="nav-item">
               <a href="index.php?controller=Home&task=index" class="nav-link <?= \Menu::buttonState("Home", 'index'); ?>">
-                <i class="nav-icon fas fa-home"></i>
+              <i class="fa-solid fa-house"></i>
                 <p>
                   Accueil
                 </p>
@@ -213,33 +216,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="nav-item">
-            <a href="#" class="nav-link   <?= \Menu::buttonState("Events", "addEvent"); ?> <?= \Menu::buttonState("Events", "index"); ?>">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Evenement
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview " style="display: block;">
-              <li class="nav-item">
-                <a href="index.php?controller=Events&task=addEvent" class="nav-link  <?= \Menu::buttonState("Events", "addEvent"); ?>">
-                <i class="fa-solid fa-calendar-plus"></i>
-                  <p>Ajouter un événement</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="index.php?controller=Events&task=index" class="nav-link  <?= \Menu::buttonState("Events", "index"); ?>">
-                <i class="fa-solid fa-calendar-pen"></i>
-                  <p>Gérer les événements</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+              <a href="#" class="nav-link   <?= \Menu::buttonState("Events", "addEvent"); ?> <?= \Menu::buttonState("Events", "index"); ?>">
+              <i class="fa-solid fa-calendar-days"></i>
+                <p>
+                  Evenement
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview " style="display: block;">
+                <li class="nav-item">
+                  <a href="index.php?controller=Events&task=addEvent" class="nav-link  <?= \Menu::buttonState("Events", "addEvent"); ?>">
+                    <i class="fa-solid fa-calendar-plus"></i>
+                    <p>Ajouter un événement</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?controller=Events&task=index" class="nav-link  <?= \Menu::buttonState("Events", "index"); ?>">
+                  <img src="./views/icons/manageEvent.png" width="20px" height="20px"/>
+                    <p>Gérer les événements</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
 
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-              <i class="fa-solid fa-circle-dollar-to-slot"></i>
-              <p>
+                <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                <p>
                   Don
                   <i class="right fas fa-angle-left"></i>
                 </p>
@@ -247,13 +250,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
-                <i class="nav-icon fas fa-hand-holding-usd"></i>
+                    <i class="nav-icon fas fa-hand-holding-usd"></i>
                     <p>Demande de don</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
-                  <i class="fa-solid fa-hands-holding-dollar"></i>
+                    <i class="fa-solid fa-filter-circle-dollar"></i>
                     <p>Gerer les dons</p>
                   </a>
                 </li>
@@ -262,22 +265,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-              <i class="fa-solid fa-users-between-lines"></i>
-              <p>
-                Gestion des responsables
+                <i class="fa-solid fa-users-between-lines"></i>
+                <p>
+                  Gestion des responsables
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
-                  <i class="fa-solid fa-user-plus"></i>
-                    <p>Ajouter un  responsables</p>
+                    <i class="fa-solid fa-user-plus"></i>
+                    <p>Ajouter un responsables</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
-                  <i class="fa-solid fa-hands-holding-child"></i>
+                    <i class="fa-solid fa-hands-holding-child"></i>
                     <p>Gérer les responsables</p>
                   </a>
                 </li>
@@ -286,22 +289,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-                <img src="./views/icons/temoignage.png" alt="" width="20px" heigth=" 20px" style="background-color:hite" class="src">
+
+                <i class="fa-regular fa-eye"></i>
                 <p>
-                Gestion des temoignages
+                  Gestion des temoignages
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i ><img src="./views/icons/eye.png" alt="" width="20" height="20"></i>
                     <p>Ajouter un témoignage</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="fa-solid fa-arrows-to-eye"></i>
                     <p>Gérer les témoignages</p>
                   </a>
                 </li>
@@ -310,57 +314,57 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-              <i class="fa-brands fa-blogger-b"></i>
+                <img src="./views/icons/blog.png" width="20" heigth="20">
                 <p>
-                Gestion des blogs
-                
+                  Gestion des blogs
+                  <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="fa-solid fa-blog"></i>
                     <p>Ajouter un blog</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Gérer  les blogs</p>
+                  <i class="fa-brands fa-blogger"></i>
+                    <p>Gérer les blogs</p>
                   </a>
                 </li>
               </ul>
             </li>
             </li>
-            
+
             <li>
-            <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-            <i class="fa-solid fa-envelope"></i>
+              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+                <i class="fa-solid fa-envelope"></i>
                 <p>
-                 Boîte E-mail
+                  Boîte E-mail
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
             </li>
-                 
+
             <li class="nav-item menu-is-opening menu-open">
               <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
-              <i class="fa-solid fa-gear"></i>
+                <img src="./views/icons/admin.png" width="20px" height="20px" alt="" class="src">
                 <p>
-                Paramètre
+                  Paramètre
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
-                  <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
                     <p>Général</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
-                  <i class="fa-solid fa-square-pen"></i>
+                    <i class="fa-solid fa-square-pen"></i>
                     <p>Mise à jour des contacts</p>
                   </a>
                 </li>
@@ -426,10 +430,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </footer>
   </div>
   <!-- ./wrapper -->
-  
+
 
   <!-- REQUIRED SCRIPTS -->
-  
+
   <script src="https://unpkg.com/feather-icons"></script>
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
@@ -440,26 +444,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<!-- Popper -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <!-- Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
-<!-- Latest compiled and minified Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/9979a01860.js" crossorigin="anonymous"></script>
-<!-- Initialize Bootstrap functionality -->
-<script >
-// Initialize tooltip component
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+  <!-- Latest compiled and minified Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-// Initialize popover component
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
-</script>
-<script src="./views/javascript/event.js"></script>
-<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+  <!-- Initialize Bootstrap functionality -->
+  <script>
+    // Initialize tooltip component
+    $(function() {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    // Initialize popover component
+    $(function() {
+      $('[data-toggle="popover"]').popover()
+    })
+  </script>
+  <script src="https://kit.fontawesome.com/9979a01860.js" crossorigin="anonymous"></script>
+  <script src="./views/javascript/event.js"></script>
 </body>
 
 </html>
