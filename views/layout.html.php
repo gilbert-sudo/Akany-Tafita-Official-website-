@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Akany tafita sahasoa</title>
+  <title><?=$pageTitle;?></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -173,7 +173,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
         <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light" >Akany TAFITASOA</span>
       </a>
 
       <!-- Sidebar -->
@@ -184,7 +184,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Akany TAFITA</a>
+            <a href="#" class="d-block">Admin</a>
           </div>
         </div>
 
@@ -207,7 +207,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
 
             <li class="nav-item">
-              <a href="index.php?controller=Home&task=index" class="nav-link <?= \Menu::buttonState("Home", 'index'); ?>">
+              <a id="home" href="index.php?controller=Home&task=index" class=" nav-link ">
               <i class="fa-solid fa-house"></i>
                 <p>
                   Accueil
@@ -215,8 +215,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
 
-            <li class="nav-item">
-              <a href="#" class="nav-link   <?= \Menu::buttonState("Events", "addEvent"); ?> <?= \Menu::buttonState("Events", "index"); ?>">
+            <li class=" nav-item">
+              <a id="event" href="#" class=" nav-link ">
               <i class="fa-solid fa-calendar-days"></i>
                 <p>
                   Evenement
@@ -225,13 +225,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview " style="display: block;">
                 <li class="nav-item">
-                  <a href="index.php?controller=Events&task=addEvent" class="nav-link  <?= \Menu::buttonState("Events", "addEvent"); ?>">
+                  <a id="event1" href="index.php?controller=Events&task=addEvent" class="nav-link  ">
                     <i class="fa-solid fa-calendar-plus"></i>
                     <p>Ajouter un événement</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?controller=Events&task=index" class="nav-link  <?= \Menu::buttonState("Events", "index"); ?>">
+                  <a id="event2" href="index.php?controller=Events&task=index" class="nav-link">
                   <img src="./views/icons/manageEvent.png" width="20px" height="20px"/>
                     <p>Gérer les événements</p>
                   </a>
@@ -240,7 +240,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="nav-item menu-is-opening menu-open">
-              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+              <a id="gift" href="#" class=" nav-link">
                 <i class="fa-solid fa-circle-dollar-to-slot"></i>
                 <p>
                   Don
@@ -249,13 +249,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
+                  <a id="gift1" href="index.php?controller=donation&task=ask" class="nav-link ">
                     <i class="nav-icon fas fa-hand-holding-usd"></i>
                     <p>Demande de don</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
+                  <a id="gift2"  href="index.php?controller=donation&task=index" class="nav-link ">
                     <i class="fa-solid fa-filter-circle-dollar"></i>
                     <p>Gerer les dons</p>
                   </a>
@@ -264,7 +264,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="nav-item menu-is-opening menu-open">
-              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+              <a id="responsible" href="#" class=" nav-link ">
                 <i class="fa-solid fa-users-between-lines"></i>
                 <p>
                   Gestion des responsables
@@ -273,13 +273,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
+                  <a id="responsible1" href="index.php?controller=responsible&task=addResponsible" class="nav-link  ">
                     <i class="fa-solid fa-user-plus"></i>
                     <p>Ajouter un responsables</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
+                  <a id="responsible2"  href="index.php?controller=responsible&task=index" class="nav-link ">
                     <i class="fa-solid fa-hands-holding-child"></i>
                     <p>Gérer les responsables</p>
                   </a>
@@ -288,7 +288,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="nav-item menu-is-opening menu-open">
-              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+              <a id="witness" href="#" class=" nav-link">
 
                 <i class="fa-regular fa-eye"></i>
                 <p>
@@ -298,13 +298,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
+                  <a id="witness1" href="index.php?controller=witness&task=addWitness" class="nav-link ">
                     <i ><img src="./views/icons/eye.png" alt="" width="20" height="20"></i>
                     <p>Ajouter un témoignage</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
+                  <a id="witness2" href="index.php?controller=witness&task=index" class="nav-link  ">
                   <i class="fa-solid fa-arrows-to-eye"></i>
                     <p>Gérer les témoignages</p>
                   </a>
@@ -313,7 +313,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="nav-item menu-is-opening menu-open">
-              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+              <a href="#" id="blog"  class=" nav-link ">
                 <img src="./views/icons/blog.png" width="20" heigth="20">
                 <p>
                   Gestion des blogs
@@ -322,13 +322,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
+                  <a href="index.php?controller=blog&task=addBlog" id="blog1" class="nav-link  ">
                   <i class="fa-solid fa-blog"></i>
                     <p>Ajouter un blog</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
+                  <a href="index.php?controller=blog&task=index" id="blog2"  class="nav-link ">
                   <i class="fa-brands fa-blogger"></i>
                     <p>Gérer les blogs</p>
                   </a>
@@ -338,7 +338,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li>
-              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+              <a id="email"  href="index.php?controller=mailbox&task=index" class=" nav-link ">
                 <i class="fa-solid fa-envelope"></i>
                 <p>
                   Boîte E-mail
@@ -348,7 +348,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="nav-item menu-is-opening menu-open">
-              <a href="#" class="nav-link <?= \Menu::buttonState("donation", "index"); ?> <?= \Menu::buttonState("donation", "ask"); ?>">
+              <a id="settings" href="#" class=" nav-link ">
                 <img src="./views/icons/admin.png" width="20px" height="20px" alt="" class="src">
                 <p>
                   Paramètre
@@ -357,13 +357,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview" style="display: block;">
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=index" class="nav-link  <?= \Menu::buttonState("donation", "index"); ?>">
+                  <a id="setting1" href="index.php?controller=admin&task=index" class="nav-link  ">
                     <i class="fa-solid fa-screwdriver-wrench"></i>
                     <p>Général</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?controller=donation&task=ask" class="nav-link  <?= \Menu::buttonState("donation", "ask"); ?>">
+                  <a id="setting2" href="" class="nav-link  ">
                     <i class="fa-solid fa-square-pen"></i>
                     <p>Mise à jour des contacts</p>
                   </a>

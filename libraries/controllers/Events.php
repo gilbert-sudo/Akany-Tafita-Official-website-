@@ -98,7 +98,7 @@ class Events extends Controller
       }
     
     $events =   $this->model->findAll();
-    \Renderer::render('Event/index', ['pageTitle' => $this->pageTitle, 'error_msg' => $error_msg,  'events' => $events]);
+    \Renderer::render('Event/manageEvent', ['pageTitle' => $this->pageTitle, 'error_msg' => $error_msg,  'events' => $events]);
   }
   public function suppress()
   {

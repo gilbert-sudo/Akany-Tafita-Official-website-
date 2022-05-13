@@ -85,3 +85,72 @@ function delete_row(no)
 // }
 // sendRequest('http://localhost:3000/events').then(data =>{ console.log(data);}).catch(err =>{console.log(err);});
 
+var navlink = document.getElementsByClassName('nav-link');
+for( let i = 0; i<navlink.length; i++ ){
+   navlink[i].addEventListener('click', function(){
+     $(this).addClass('active');
+    });
+  }
+  var page = window.location.href;
+ page = page.substr((page.lastIndexOf('/') + 1));
+switch(page){
+   
+    case "index.php?controller=Home&task=index":
+        $('#home').addClass('active');
+        break;
+    case "index.php?controller=Events&task=addEvent":
+      $("#event").addClass("active");
+      $('#event1').addClass('active');
+        break;
+    case "index.php?controller=Events&task=index":
+       $("#event").addClass("active");
+        $('#event2').addClass('active');
+        break;
+      case "index.php?controller=donation&task=ask":
+        $("#gift").addClass('active');
+        $("#gift1").addClass('active');
+        break;
+      case "index.php?controller=donation&task=index":
+        $("#gift").addClass('active');
+        $("#gift2").addClass('active');
+        break;
+        case "index.php?controller=blog&task=addBlog":
+          $("#blog").addClass('active');
+          $("#blog1").addClass('active');
+          break;
+          case "index.php?controller=blog&task=index":
+            $("#blog").addClass('active');
+            $("#blog2").addClass('active');
+            break;
+            case "index.php?controller=responsible&task=addResponsible":
+              $("#responsible").addClass('active');
+              $("#responsible1").addClass('active');
+              break;
+              case "index.php?controller=responsible&task=index": 
+                $("#responsible").addClass('active');
+                $("#responsible2").addClass('active');
+                break
+                case "index.php?controller=admin&task=index":
+                  $("#setting").addClass('active');
+                  $("#setting1").addClass('active');
+                  break;
+                  case "index.php?controller=contact&task=index":
+                    $("#setting").addClass('active');
+                    $("#setting2").addClass('active');
+                    break;
+                    case "index.php?controller=witness&task=addWitness":
+                      $("#witness").addClass('active');
+                      $("#witness1").addClass('active');
+                      break;
+                      case "index.php?controller=witness&task=index":
+                        $("#witness").addClass('active');
+                        $("#witness2").addClass('active');
+                        break;
+                        case "index.php?controller=mailbox&task=index":
+                          $("#email").addClass('active');
+                          break;
+                          default: 
+                          $("#home").addClass('active');
+
+}
+

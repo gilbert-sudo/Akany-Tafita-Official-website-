@@ -4,7 +4,8 @@ namespace Controllers;
 abstract class Controller {
     protected $model;
     protected $modelName;
-    protected $view;
+    protected $view1;
+    protected $view2;
     protected $pageTitle;
     
 
@@ -20,7 +21,19 @@ abstract class Controller {
     public function index()
     {
       $pageTitle = $this->pageTitle;
-      \Renderer::render($this->view, compact('pageTitle'));
+      \Renderer::render($this->view2, compact('pageTitle'));
     }
-    
+    public function delete(): void{
+                 if(isset($_GET['id'] )&& !empty($_GET['id'])){
+                    $id = $_GET['id'];
+                    $this->model->delete($id);
+                    $success ="1";
+                 }
+                 else
+                  {
+                      $success ="0";
+                  }
+                  json_encode($success);
+                 
+    }
 }

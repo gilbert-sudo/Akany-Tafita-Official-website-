@@ -2,7 +2,6 @@
 
 namespace Controllers;
 
-use Renderer;
 
 class Donation extends Controller
 {
