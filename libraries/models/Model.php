@@ -38,8 +38,8 @@ abstract class Model
   }
   public function insertOne(array $td = [])
   {
-    extract($td);
-    $insert = $this->pdo->prepare("INSERT INTO {$this->table}('.$this->columns'.)VALUES ('.$this->valToInsert.')");
+   
+    $insert = $this->pdo->prepare("INSERT INTO {$this->table}($this->columns)VALUES ($this->valToInsert)");
     $insert->execute($td);
   }
   public function search($keywords, $col){

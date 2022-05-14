@@ -164,6 +164,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <i class="fas fa-th-large"></i>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="" class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+         <img src="views/icons/disconnect.png"  width="20" height="20">
+        </a>
+        </li>
       </ul>
     </nav>
     <!-- /.navbar -->
@@ -223,7 +228,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview " style="display: block;">
+              <ul id="link1" class="nav nav-treeview " style="display: none;">
                 <li class="nav-item">
                   <a id="event1" href="index.php?controller=Events&task=addEvent" class="nav-link  ">
                     <i class="fa-solid fa-calendar-plus"></i>
@@ -231,7 +236,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="event2" href="index.php?controller=Events&task=index" class="nav-link">
+                  <a id="event2" href="index.php?controller=Events&task=manageEvent" class="nav-link">
                   <img src="./views/icons/manageEvent.png" width="20px" height="20px"/>
                     <p>Gérer les événements</p>
                   </a>
@@ -247,7 +252,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview" style="display: block;">
+              <ul id="link2"  class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
                   <a id="gift1" href="index.php?controller=donation&task=ask" class="nav-link ">
                     <i class="nav-icon fas fa-hand-holding-usd"></i>
@@ -271,7 +276,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview" style="display: block;">
+              <ul id="link3"  class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
                   <a id="responsible1" href="index.php?controller=responsible&task=addResponsible" class="nav-link  ">
                     <i class="fa-solid fa-user-plus"></i>
@@ -296,7 +301,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview" style="display: block;">
+              <ul id="link4" class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
                   <a id="witness1" href="index.php?controller=witness&task=addWitness" class="nav-link ">
                     <i ><img src="./views/icons/eye.png" alt="" width="20" height="20"></i>
@@ -313,14 +318,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="nav-item menu-is-opening menu-open">
-              <a href="#" id="blog"  class=" nav-link ">
+              <a  href="#" id="blog"  class=" nav-link ">
                 <img src="./views/icons/blog.png" width="20" heigth="20">
                 <p>
                   Gestion des blogs
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview" style="display: block;">
+              <ul id="link5"  class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
                   <a href="index.php?controller=blog&task=addBlog" id="blog1" class="nav-link  ">
                   <i class="fa-solid fa-blog"></i>
@@ -328,7 +333,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?controller=blog&task=index" id="blog2"  class="nav-link ">
+                  <a href="index.php?controller=blog&task=manageBlog" id="blog2"  class="nav-link ">
                   <i class="fa-brands fa-blogger"></i>
                     <p>Gérer les blogs</p>
                   </a>
@@ -355,7 +360,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview" style="display: block;">
+              <ul id="link6" class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
                   <a id="setting1" href="index.php?controller=admin&task=index" class="nav-link  ">
                     <i class="fa-solid fa-screwdriver-wrench"></i>
@@ -363,7 +368,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="setting2" href="" class="nav-link  ">
+                  <a id="setting2" href="index.php?controller=contact&task=index" class="nav-link  ">
                     <i class="fa-solid fa-square-pen"></i>
                     <p>Mise à jour des contacts</p>
                   </a>

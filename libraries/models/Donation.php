@@ -4,8 +4,8 @@ namespace models;
 class Donation extends Model
 {
   protected $table = 'demande_dons';
-  protected $colToUpdate= "but = :but, fond = :fond, description = :description, image = :images, NOW()";
-  protected $valToInsert = " :but,  :fond,  :description,  :images,  NOW()";
-  protected $columns = "title_event, date_event, time_event, description_event, images";
+  protected $colToUpdate= "sujet = :sujet, montant = :montant, motif = :motif, image= :image, NOW()";
+  protected $valToInsert = " :sujet,  :montant,  :motif,  :image,  NOW()";
+  protected $columns = "sujet, montant, motif, image, cree_a";
 
 }

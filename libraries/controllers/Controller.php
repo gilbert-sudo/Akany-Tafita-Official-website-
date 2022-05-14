@@ -12,12 +12,14 @@ abstract class Controller {
    public  function __construct()
     {
         $this->model = new $this->modelName();
+     
     }
     /**
      * index the page
      *
      * @return void
      */
+  
     public function index()
     {
         $pageTitle = $this->pageTitle;

@@ -1,62 +1,81 @@
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Toutes les demandes</h3>
+<div class="card-body">
+    <p id="error_msg"> <?= $error_msg; ?></p>
+    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+        <div class="row">
+            <div class="col-sm-12 col-md-6"></div>
+            <div class="col-sm-12 col-md-6"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="wrapper">
+                    <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+                        <tr>
+                            <th>Objet</th>
+                            <th>Prémière Contenue</th>
+                            <th>Déuxième Contenue </th>
+                            <th>Images</th>
+                            <th>Action</th>
+                        </tr>
+                        <?php
+                        $i = 0;
+                        foreach ($blogs as $blog) {
+                            $i++;
 
-        <div class="card-tools">
-            <ul class="pagination pagination-sm float-right">
-                <li class="page-item"><a class="page-link" href="#">«</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">»</a></li>
-            </ul>
+                        ?>
+                            <tr id="<?= 'row' . $i; ?>">
+                            <form>
+                                <td id="<?= 'title_row' . $i; ?>"><?= $blog['object']; ?></td>
+                                <td id="<?= 'date_row' . $i; ?>"><?= $blog['contain_1']; ?></td>
+                                <td id="<?= 'time_row' . $i; ?>"><?= $blog['contain_2']; ?></td>
+                                <td id="img_row<?= $i; ?>"><img id="<?= 'event_img' . $i; ?>" src="./views/images/gifts/<?= $blog['image']; ?>" alt="" width="100px" height="100px"></td>
+                                <td>
+                                    <input type="button" id="<?= 'edit_button' . $i; ?>" value="Edit" class="edit" onclick="edit_row('<?= $i; ?>')">
+                                    <input type="button" id="<?= 'save_button' . $i; ?>" value="Save" class="save" style="display:none;" onclick="save_row('<?= $i; ?>')">
+                                    <input type="button" value="Delete" class="delete" onclick="delete_row('<?= $i; ?>')">
+                                </td>
+                        </form>
+                            </tr>
+                        <?php
+                        } ?>
+                        <br>
+                        <tr>
+                         <!-- <form id="add_form" enctype="multipart/form-data" method="POST">
+                            <td><input type="text" id="new_title"></td>
+                            <td><input type="date" id="new_date"></td>
+                            <td><input type="time" id="new_time"></td>
+                            <td><input type="text" id="new_desc"></td>
+                            <td>
+                                <img id="blah" style="display:none;" src="" alt="your image" width="100px" height="100px" />
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><input type="file" class="img" id="imgInp" onchange="showPreview(event);"></span>
+                                </div>
+                            </td>
+                            <td><input type="button" class="add" onclick="add_row();" value="Add Row"><a href="index.php?controller=events&task=addEvent">add</a></td>
+                    </form> -->
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-5">
+                <div class="dataTables_info" id="example2_info" role="status" aria-live="polite"></div>
+            </div>
+            <div class="col-sm-12 col-md-7">
+                <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                    <ul class="pagination">
+                        <li class="paginate_button page-item previous disabled" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                        <li class="paginate_button page-item active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                        <li class="paginate_button page-item next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    
-    <!-- /.card-header -->
-    <div class="card-body p-0">
-        <table class="table">
-            <thead>
-                <tr>
-                    <?php echo"bon voyage";?>
-                    <th style="width: 10px">#</th>
-                    <th>Task</th>
-                    <th>Progress</th>
-                    <th style="width: 40px">Label</th>
-                    <th>Date</th>
-                    <th>Option</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                <?php
-                $i = 0;
-                foreach ($donations as $key) {
-                ++$i;
-                ?>
-
-                    <tr>
-                        <td><?= $i ?>.</td>
-                        <td><?= $key['but'] ?></td>
-                        <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-danger">55%</span></td>
-                        <td><?= $key['created_at'] ?></td>
-                        <td>
-                            <a href="#" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#" class="btn btn-primary btn-sm">
-                                <i class="fas fa-info-circle"></i>
-                            </a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
-    <!-- /.card-body -->
 </div>

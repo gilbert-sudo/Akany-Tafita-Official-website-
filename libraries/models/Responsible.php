@@ -2,8 +2,8 @@
 namespace models;
 class Responsible extends Model{
     protected $table = 'responsable';
-    protected $colToUpdate= "name_resp = :name_resp, firstname_resp = :firstname_resp, fonction= :fonction, image = :image";
-    protected $valToInsert = " :name_resp,  :firstname_resp,  :fonction,  :image";
-    protected $columns = "name_resp, firstname_resp, fonction, image";
+    protected $colToUpdate= "name_resp = :name_resp, firstname_resp = :firstname_resp, function= :function, image = :image";
+    protected $valToInsert = " :name_resp,  :firstname_resp,  :function,  :image";
+    protected $columns = "name_resp, firstname_resp, function, image";
 
 }

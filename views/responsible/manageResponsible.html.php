@@ -28,7 +28,7 @@
                                 <td id="<?= 'title_row' . $i; ?>"><?= $responsible['name_resp']; ?></td>
                                 <td id="<?= 'date_row' . $i; ?>"><?= $responsible['firstname_resp']; ?></td>
                                 <td id="<?= 'time_row' . $i; ?>"><?= $responsible['function']; ?></td>
-                                <td id="img_row<?= $i; ?>"><img id="<?= 'event_img' . $i; ?>" src="./views/images/<?= $responsible['image']; ?>" alt="" width="100px" height="100px"></td>
+                                <td id="img_row<?= $i; ?>"><img id="<?= 'event_img' . $i; ?>" src="./views/images/responsibles/<?= $responsible['image']; ?>" alt="" width="100px" height="100px"></td>
                                 <td>
                                     <input type="button" id="<?= 'edit_button' . $i; ?>" value="Edit" class="edit" onclick="edit_row('<?= $i; ?>')">
                                     <input type="button" id="<?= 'save_button' . $i; ?>" value="Save" class="save" style="display:none;" onclick="save_row('<?= $i; ?>')">

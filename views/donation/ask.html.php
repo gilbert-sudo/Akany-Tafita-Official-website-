@@ -1,42 +1,48 @@
-<div class="card card-info">  
-
-    <?=$error_msg;?>
- 
+<div class="card card-info">
+<p id="error_msg"> <?= $error_msg; ?></p>
+  <div class="card card-info">
     <div class="card-header">
-        <h3 class="card-title">Demande de don</h3>
+      <h3 class="card-title">Demande de don</h3>
     </div>
-    <!-- /.card-header -->
-    <!-- form start -->
-    
-
-    <form method="POST" enctype="multipart/form-data" action="#">
-        <div class="card-body">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Votre sujet:</label>
-                <input type="text" name="sujet" <?php \Renderer::resetValue($sujet) ?> class="form-control" id="exampleInputEmail1" maxlength="45" placeholder="Ecriver ici ..." required>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Le motant que vous demander:</label>
-                <input type="number" max="1000000000" name="montant" <?php \Renderer::resetValue($montant) ?> class="form-control" id="exampleInputPassword1" placeholder="Ecriver un chiffre" required>
-            </div>
-            <div class="form-group">
-                <label>Motif de la demande:</label>
-                <textarea class="form-control" maxlength="100" name="motif" rows="3" placeholder="Ecriver ici ..." required> <?php \Renderer::resetValue($motif, 'textarea') ?> </textarea>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputFile">Ajouter une image</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" name="file" required>
-                    </div>
+    <div class="card-body">
+      <!-- Color Picker -->
+      <form method="POST" enctype="multipart/form-Data" action=" ">
+        <div class="form-group">
+          <label>Sujet</label>
+          <input type="text" id="event_title" class="form-control my-colorpicker1 colorpicker-element" required <?= \renderer::resetValue($sujet); ?> data-colorpicker-id="1" data-original-title="" name="sujet">
+        </div>
+     
+              <div class="form-group">
+                <label>Le Montant que vous demandez</label>
+                <input type="number" class="form-control float-right" id="event_time" required <?= \renderer::resetValue($montant); ?> name="montant">
+              </div>
+        
+         
+            
+            
+             <div class="form-group">
+          <label>Motif de la demande</label>
+          <textarea type="text" class="form-control float-right" id="event_desc" rows="1" name="motif" required><?= \renderer::resetValue($motif, 'textarea'); ?></textarea>
+        </div>
+              <div class="form-group" style="border-color:white">
+                <label>Image</label>
+                <img id="blah" style="display:none;" src="" alt="your image" width="200px" height="200px" />
+                <div>
+                  <span class="btn btn-file btn-success"><span id="selectImg" class="fileupload-new">Select image</span><input type="file" name='image' class="img" id="blah" required onchange="showPreview(event);"></span>
                 </div>
-            </div>
-        </div>
-        <!-- /.card-body -->
 
-        <div class="card-footer">
-            <input type="submit" value="Publier" class="btn btn-primary">
+              </div>
+          
+         
+      
+      
+        <div style="margin-top:60px; ">
+          <button type="submit" id="insertEvent" class="btn btn-primary" name="demande_don">demander</button>
         </div>
-    </form>
+      </form>
+    </div>
 
+  </div>
+
+  <!-- /.card-body -->
 </div>

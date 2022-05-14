@@ -101,50 +101,62 @@ switch(page){
     case "index.php?controller=Events&task=addEvent":
       $("#event").addClass("active");
       $('#event1').addClass('active');
+      $('#link1').css('display', 'block');
         break;
     case "index.php?controller=Events&task=index":
        $("#event").addClass("active");
         $('#event2').addClass('active');
+        $('#link1').css('display','block');
         break;
       case "index.php?controller=donation&task=ask":
         $("#gift").addClass('active');
         $("#gift1").addClass('active');
+        $('#link2').css('display', 'block');
         break;
       case "index.php?controller=donation&task=index":
         $("#gift").addClass('active');
         $("#gift2").addClass('active');
+        $('#link2').css('display', 'block');
         break;
         case "index.php?controller=blog&task=addBlog":
           $("#blog").addClass('active');
           $("#blog1").addClass('active');
+          $('#link5').css('display','block');
           break;
-          case "index.php?controller=blog&task=index":
+          case "index.php?controller=blog&task=manageBlog":
             $("#blog").addClass('active');
             $("#blog2").addClass('active');
+            $('#link5').css('display', 'block');
             break;
             case "index.php?controller=responsible&task=addResponsible":
               $("#responsible").addClass('active');
               $("#responsible1").addClass('active');
+              $('#link3').css('display','block');
               break;
               case "index.php?controller=responsible&task=manageResponsible": 
                 $("#responsible").addClass('active');
                 $("#responsible2").addClass('active');
+                $('#link3').css('display','block');
                 break
                 case "index.php?controller=admin&task=index":
-                  $("#setting").addClass('active');
+                  $("#settings").addClass('active');
                   $("#setting1").addClass('active');
+                  $('#link6').css('display', 'block');
                   break;
                   case "index.php?controller=contact&task=index":
-                    $("#setting").addClass('active');
+                    $("#settings").addClass('active');
                     $("#setting2").addClass('active');
+                    $('#link6').css('display','block');
                     break;
                     case "index.php?controller=witness&task=addWitness":
                       $("#witness").addClass('active');
                       $("#witness1").addClass('active');
+                      $('#link4').css('display','block');
                       break;
-                      case "index.php?controller=witness&task=index":
+                      case "index.php?controller=witness&task=manageWitness":
                         $("#witness").addClass('active');
                         $("#witness2").addClass('active');
+                        $('#link4').css('display','block');
                         break;
                         case "index.php?controller=mailbox&task=index":
                           $("#email").addClass('active');
