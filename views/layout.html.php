@@ -279,7 +279,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="responsible2"  href="index.php?controller=responsible&task=index" class="nav-link ">
+                  <a id="responsible2"  href="index.php?controller=responsible&task=manageResponsible" class="nav-link ">
                     <i class="fa-solid fa-hands-holding-child"></i>
                     <p>Gérer les responsables</p>
                   </a>
@@ -304,7 +304,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="witness2" href="index.php?controller=witness&task=index" class="nav-link  ">
+                  <a id="witness2" href="index.php?controller=witness&task=manageWitness" class="nav-link  ">
                   <i class="fa-solid fa-arrows-to-eye"></i>
                     <p>Gérer les témoignages</p>
                   </a>

@@ -2,7 +2,7 @@
   <p id="error_msg"> <?= $error_msg; ?></p>
   <div class="card card-info">
     <div class="card-header">
-      <h3 class="card-title">Ajouter un événement</h3>
+      <h3 class="card-title">Ajouter un responsable</h3>
     </div>
     <div class="card-body">
       <!-- Color Picker -->
@@ -18,7 +18,7 @@
             </div>
             <div class="col-6 order-last">
               <div class="form-group">
-                <label>Prenom</label>
+                <label>Prénom</label>
                 <input type="text" class="form-control float-right" id="firstname_resp" required <?= \renderer::resetValue($firstname_resp); ?> name="firstname_resp">
               </div>
             </div>

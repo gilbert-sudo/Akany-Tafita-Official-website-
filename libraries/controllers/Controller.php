@@ -20,8 +20,18 @@ abstract class Controller {
      */
     public function index()
     {
-      $pageTitle = $this->pageTitle;
-      \Renderer::render($this->view2, compact('pageTitle'));
+        $pageTitle = $this->pageTitle;
+        \Renderer::render($this->view2, compact('pageTitle'));
+    }
+    public function update(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $id = $_GET['id'];
+             $this->model->update($id);
+         $success = 1;
+        }
+        else{
+            $success = 0;
+        }
     }
     public function delete(): void{
                  if(isset($_GET['id'] )&& !empty($_GET['id'])){

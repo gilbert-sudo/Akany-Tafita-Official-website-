@@ -126,7 +126,7 @@ switch(page){
               $("#responsible").addClass('active');
               $("#responsible1").addClass('active');
               break;
-              case "index.php?controller=responsible&task=index": 
+              case "index.php?controller=responsible&task=manageResponsible": 
                 $("#responsible").addClass('active');
                 $("#responsible2").addClass('active');
                 break
