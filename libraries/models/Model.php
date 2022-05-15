@@ -2,7 +2,7 @@
 
 namespace models;
 
-abstract class Model
+class Model
 {
   protected $pdo;
   protected $table;
@@ -31,19 +31,22 @@ abstract class Model
     $delete = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
     $delete->execute([$id]);
   }
-  public function updateOne(int $id, array $td = []): void
+  public function updateOne( array $td = [])
   {
-    $update = $this->pdo->prepare("UPDATE {$this->table} SET '.$this->colToUpdate.' WHERE id = $id");
+    $update = $this->pdo->prepare("UPDATE {$this->table} SET $this->colToUpdate WHERE id = :id ");
     $update->execute($td);
   }
   public function insertOne(array $td = [])
   {
-   
+    
     $insert = $this->pdo->prepare("INSERT INTO {$this->table}($this->columns)VALUES ($this->valToInsert)");
     $insert->execute($td);
   }
-  public function search($keywords, $col){
-    $search = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE $col LIKE %$keywords%");
+  public function search(array $td = []){
+    extract($td);
+    $search = $this->pdo->query("SELECT * FROM {$this->table} WHERE $col LIKE '%$keywords%'");
+    $results = $search->fetch();
+    return $results;
   }
 
 }

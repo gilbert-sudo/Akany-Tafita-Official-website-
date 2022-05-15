@@ -7,6 +7,7 @@ class Responsible extends Controller{
     protected $view2="responsible/manageResponsible";
     protected $modelName = \models\Responsible::class;
     public function addResponsible(){
+      global $error_msg;
         $error_msg = ' ';
         $name_resp = ' ';
         $firstname_resp = ' ';
@@ -20,19 +21,10 @@ class Responsible extends Controller{
                 $img = $_FILES['image']['name'];
                 $ext = explode('.', $img);
                 $file_ext = strtolower(end($ext));
-                $allowed_ext = array('jpg', 'jpeg', 'gif', 'png');
-                if(in_array($file_ext, $allowed_ext)){
-                  $image = rand(1000, 1000000000) . '.' . $file_ext;
-                  $target = "views/images/responsibles/".$image;
-                  if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
-                    $this->model->insertOne(compact('name_resp', 'firstname_resp', 'function', 'image'));
-                    $error_msg = \Renderer::showError(' ', 'success');
-                  }else {
-                    $error_msg = \Renderer::showError("Désolé, une erreur s'est produite lors du téléchargement de votre fichier.", 'danger');
-                  }
-                } else {
-                  $error_msg = \Renderer::showError("Désolé, seuls les fichiers JPG, JPEG, PNG et GIF sont autorisés pour la photo.", 'danger');
-                }
+                $image = rand(1, 1000000) . '.' . $file_ext;
+                $domain = "responsibles";
+                $modelMethod = 'insertOne';
+               \Database::verifyFile(compact('file_ext', 'image', 'domain', 'Model',  'modelMethod'), compact('name_resp', 'firstname_resp', 'function', 'image'));
               } else {
                 $error_msg = \Renderer::showError('Veuillez remplir tous les champs', 'danger');
               }

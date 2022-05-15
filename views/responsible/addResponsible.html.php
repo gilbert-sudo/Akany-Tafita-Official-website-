@@ -6,7 +6,7 @@
     </div>
     <div class="card-body">
       <!-- Color Picker -->
-      <form method="POST" enctype="multipart/form-Data" action="">
+      <form method="POST" enctype="multipart/form-Data" action=" ">
 
         <div class="container">
           <div class="row">

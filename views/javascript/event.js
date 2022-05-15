@@ -138,7 +138,7 @@ switch(page){
                 $("#responsible2").addClass('active');
                 $('#link3').css('display','block');
                 break
-                case "index.php?controller=admin&task=index":
+                case "index.php?controller=admin&task=general":
                   $("#settings").addClass('active');
                   $("#setting1").addClass('active');
                   $('#link6').css('display', 'block');
@@ -165,4 +165,21 @@ switch(page){
                           $("#home").addClass('active');
 
 }
-
+for(var i = 0; i<3; i++){
+document.getElementById('spanEye')[i].addEventListener('click', 
+function () {
+  var x = document.getElementById("password"+i);
+  var show_eye = document.getElementById("show_eye"+i);
+  var hide_eye = document.getElementById("hide_eye"+i);
+  hide_eye.classList.remove("d-none");
+  if (x.type === "password") {
+    x.type = "text";
+    show_eye.style.display = "none";
+    hide_eye.style.display = "block";
+  } else {
+    x.type = "password";
+    show_eye.style.display = "block";
+    hide_eye.style.display = "none";
+  }
+}
+)}

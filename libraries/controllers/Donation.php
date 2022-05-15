@@ -6,7 +6,8 @@ namespace Controllers;
 class Donation extends Controller
 {
   protected $pageTitle = 'Donation';
-  protected $view = 'donation/index';
+  protected $view1 = 'donation/ask';
+  protected $view2 = 'donation/index';
   protected $modelName = \models\Donation::class;
 
   /**
@@ -16,6 +17,7 @@ class Donation extends Controller
    */
   public function ask()
   {
+    global $error_msg;
     $error_msg = '';
     $sujet = '';
     $montant = '';
@@ -26,32 +28,21 @@ class Donation extends Controller
           $sujet = $_POST['sujet'];
           $montant = $_POST['montant'];
           $motif = $_POST['motif'];
-          $img = $_FILES['image']['name'];
-          // $ext = explode('.', $img);
-          // $file_ext = strtolower(end($ext));
-          // $allowed_ext = array('jpg', 'jpeg', 'gif', 'png');
-          // if (in_array($file_ext, $allowed_ext)) {
-
-          //   $image= rand(1000, 1000000) . '.' . $file_ext;
-          //   $target = "views/images/donation/".$image;
-          //   if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-          //     $this->model->insertOne(compact('sujet', 'montant', 'motif', 'image'));
-          //     $error_msg = \Renderer::showError('Votre demande a été envoyé avec succès', 'success');
-          //   } else {
-          //     $error_msg = \Renderer::showError("Désolé, une erreur s'est produite lors du téléchargement de votre fichier.", 'danger');
-          //   }
-          // } else {
-          //   $error_msg = \Renderer::showError("Désolé, seuls les fichiers JPG, JPEG, PNG et GIF sont autorisés pour la photo.", 'danger');
-          // }
-          $lotOfVar ="'sujet', 'montant', 'motif', 'image'";
-          \Database::verifyFile('donation', $lotOfVar, $this->model);
+          $img = $_FILES['image']['name'];  
+              $ext = explode('.', $img);
+         $file_ext = strtolower(end($ext));
+          $image= rand(1, 1000000) . '.' . $file_ext; 
+          $domain = 'donation';
+          $Model = $this->model;
+          $modelMethod = 'insertOne';
+          \Database::verifyFile(compact('file_ext', 'image', 'domain', 'Model', 'modelMethod'), compact('sujet', 'montant', 'motif','image'));
         } else {
           $error_msg = \Renderer::showError('Veuillez remplir tous les champs', 'danger');
         }
       }
     }
     $pageTitle = $this->pageTitle;
-    \Renderer::render('donation/ask', compact('pageTitle', 'error_msg', 'sujet', 'montant', 'motif'));
+    \Renderer::render($this->view1, compact('pageTitle', 'error_msg', 'sujet', 'montant', 'motif'));
   }
 
   /**

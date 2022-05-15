@@ -10,6 +10,7 @@ class Events extends Controller
   protected $pageTitle = 'Evènement';
   public function addEvent()
   {
+    global $error_msg;
     $error_msg = ' ';
     $title_event = ' ';
     $time_event = ' ';
@@ -26,21 +27,11 @@ class Events extends Controller
           $img = $_FILES['image']['name'];
           $ext = explode('.', $img);
           $file_ext = strtolower(end($ext));
-          $allowed_ext = array('jpg', 'jpeg', 'gif', 'png');
-          if(in_array($file_ext, $allowed_ext)){
-            $image = rand(1000, 1000000) . '.' . $file_ext;
-            $target = "views/images/events/".$image;
-            if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
-              $this->model->insertOne(compact('title_event', 'time_event', 'date_event', 'description_event', 'image'));
-              $error_msg = \Renderer::showError(' ', 'success');
-            }else{
-             
-              \Renderer::showError("Erreur lors du téléversement de votre fichier", "danger");
-            }
-        }else{
-        
-           $error_msg = \Renderer::showError("Désolé, seuls les fichiers JPG, JPEG, PNG et GIF sont autorisés pour la photo.", 'danger');
-        }
+          $image = rand(1, 1000000) . '.' . $file_ext;
+          $domain = 'events';
+          $Model = $this->model;
+          $modelMethod = 'insertOne';
+          \Database::verifyFile(compact('file_ext', 'image', 'domain', 'Model', 'modelMethod'),  compact('title_event', 'date_event', 'time_event', 'description_event','image'));
 
         }else
         {

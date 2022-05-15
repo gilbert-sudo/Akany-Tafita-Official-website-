@@ -6,7 +6,7 @@
         </div>
         <div class="card-body">
             <!-- Color Picker -->
-            <form method="POST" enctype="multipart/form-Data" action="#">
+            <form method="POST" enctype="multipart/form-Data" action=" ">
                 <div class="form-group">
                     <labe>Objet</label>
                         <input type="text" id="event_title" class="form-control my-colorpicker1 colorpicker-element" required <?= \renderer::resetValue($object); ?> data-colorpicker-id="1" data-original-title="" name="object">
@@ -26,7 +26,7 @@
 
                 <div class="form-group">
                     <label>contenues</label>
-                    <textarea type="text" class="form-control float-right" id="event_desc" rows="1" name="contain" required><?= \renderer::resetValue($contain_1, 'textarea'); ?></textarea>
+                    <textarea type="text" class="form-control float-right" id="event_desc" rows="1" name="contain_1" required><?= \renderer::resetValue($contain_1, 'textarea'); ?></textarea>
                 </div>
                 <div class="form-group">
                     <label>deuxième contenues</label>

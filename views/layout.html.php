@@ -362,13 +362,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul id="link6" class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
-                  <a id="setting1" href="index.php?controller=admin&task=index" class="nav-link  ">
+                  <a id="setting1" href="index.php?controller=admin&task=general" class="nav-link  ">
                     <i class="fa-solid fa-screwdriver-wrench"></i>
                     <p>Général</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="setting2" href="index.php?controller=contact&task=index" class="nav-link  ">
+                  <a id="setting2" href="index.php?controller=contact&task=updateContact" class="nav-link  ">
                     <i class="fa-solid fa-square-pen"></i>
                     <p>Mise à jour des contacts</p>
                   </a>
